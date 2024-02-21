@@ -1,0 +1,4 @@
+{
+  "extends": "@saude-blue/ts-config/base.json",
+  "include": ["src"]
+}
