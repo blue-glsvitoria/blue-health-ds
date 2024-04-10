@@ -1,6 +1,7 @@
 {
   "name": "@blue-health/eslint-config",
   "license": "ISC",
+  "version": "1.0.0",
   "main": "index.js",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.6.0",

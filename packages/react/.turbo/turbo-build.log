@@ -1,5 +1,5 @@
 
-> @blue-health/react@1.0.0 build
+> @blue-health/react@2.0.0 build
 > tsup src/index.tsx --format esm,cjs --dts --external reaect
 
 [34mCLI[39m Building entry: src/index.tsx
@@ -8,31 +8,13 @@
 [34mCLI[39m Target: es6
 [34mESM[39m Build start
 [34mCJS[39m Build start
-
- WARN  [33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mUnexpected "<"[0m [css-syntax-error]
-
-    src/styles/main.css:1:0:
-[37m      1 │ [32m<[37mstyle>
-        ╵ [32m^[0m
-
-
-
-
- WARN  [33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mUnexpected "<"[0m [css-syntax-error]
-
-    src/styles/main.css:1:0:
-[37m      1 │ [32m<[37mstyle>
-        ╵ [32m^[0m
-
-
-
 [32mCJS[39m [1mdist\index.js  [22m[32m130.35 KB[39m
-[32mCJS[39m [1mdist\index.css [22m[32m154.00 B[39m
-[32mCJS[39m ⚡️ Build success in 278ms
+[32mCJS[39m [1mdist\index.css [22m[32m132.00 B[39m
+[32mCJS[39m ⚡️ Build success in 348ms
+[32mESM[39m [1mdist\index.css [22m[32m132.00 B[39m
 [32mESM[39m [1mdist\index.mjs [22m[32m129.74 KB[39m
-[32mESM[39m [1mdist\index.css [22m[32m154.00 B[39m
-[32mESM[39m ⚡️ Build success in 280ms
+[32mESM[39m ⚡️ Build success in 348ms
 [34mDTS[39m Build start
-[32mDTS[39m ⚡️ Build success in 5541ms
+[32mDTS[39m ⚡️ Build success in 5137ms
 [32mDTS[39m [1mdist\index.d.mts [22m[32m645.00 B[39m
 [32mDTS[39m [1mdist\index.d.ts  [22m[32m645.00 B[39m
