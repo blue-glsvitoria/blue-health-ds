@@ -1,6 +1,5 @@
 {
-  "name": "@saude-blue/ts-config",
+  "name": "@blue-health/ts-config",
   "version": "1.0.0",
-  "license": "MIT",
-  "private": true
+  "license": "ISC"
 }
