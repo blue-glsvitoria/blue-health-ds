@@ -68,9 +68,10 @@ var fonts = {
 
 // src/radii.ts
 var radii = {
-  sm: "6px",
-  md: "12px",
-  lg: "24px",
+  xs: "4px",
+  sm: "8px",
+  md: "16px",
+  lg: "26px",
   full: "9999px"
 };
 
