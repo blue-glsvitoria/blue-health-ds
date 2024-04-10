@@ -6,24 +6,24 @@ import { createTheme } from "@mui/material";
 export const theme = createTheme({
   palette: {
     primary: {
-      main: colors["primary-main"],
-      dark: colors["primary-dark"],
+      main: colors.primary,
+      dark: colors.primaryDark,
     },
     secondary: {
-      main: colors["secondary-main"],
-      dark: colors["secondary-dark"],
+      main: colors.secondary,
+      dark: colors.secondaryDark,
     },
     error: {
-      main: colors["error-main"],
-      dark: colors["error-dark"],
+      main: colors.error,
+      dark: colors.errorDark,
     },
     success: {
-      main: colors["success-main"],
-      dark: colors["success-dark"],
+      main: colors.success,
+      dark: colors.successDark,
     },
     text: {
-      primary: colors["text-primary"],
-      secondary: colors["text-secondary"],
+      primary: colors.textPrimary,
+      secondary: colors.textSecondary,
     },
   },
   typography: {

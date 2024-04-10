@@ -1,14 +1,14 @@
 declare const colors: {
-    "primary-main": string;
-    "primary-dark": string;
-    "secondary-main": string;
-    "secondary-dark": string;
-    "error-main": string;
-    "error-dark": string;
-    "success-main": string;
-    "success-dark": string;
-    "text-primary": string;
-    "text-secondary": string;
+    primary: string;
+    primaryDark: string;
+    secondary: string;
+    secondaryDark: string;
+    error: string;
+    errorDark: string;
+    success: string;
+    successDark: string;
+    textPrimary: string;
+    textSecondary: string;
 };
 
 declare const fontSizes: {
