@@ -1,4 +1,4 @@
-name: Deploy docs
+name: Deploy Docs
 
 on:
   push:
@@ -18,10 +18,9 @@ jobs:
           node-version: '16'
 
       - run: npm ci
-
       - run: npm run build
 
-      - name: Deploy storybook
+      - name: Deploy Storybook
         working-directory: ./packages/docs
         run: npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
         env:
