@@ -118,3 +118,5 @@ export const Button = ({
     </MUIButton>
   );
 };
+
+Button.displayName = "Button";
