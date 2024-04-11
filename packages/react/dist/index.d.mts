@@ -16,6 +16,14 @@ declare const Button: {
     displayName: string;
 };
 
+interface INavLinkProps {
+    to: string;
+    label: string;
+    icon: typeof SvgIcon;
+    variant?: "icon" | "standard";
+}
+declare const NavLink: ({ variant, icon, to, label, }: INavLinkProps) => react_jsx_runtime.JSX.Element;
+
 type ITextFieldProps = {
     icon?: typeof SvgIcon;
     iconPosition?: "left" | "right";
@@ -27,13 +35,13 @@ declare const TextField: react.ForwardRefExoticComponent<(Omit<{
     }) | undefined;
     iconPosition?: "left" | "right" | undefined;
     iconProps?: SvgIconProps | undefined;
-} & _mui_material.FilledTextFieldProps, "ref"> | Omit<{
+} & _mui_material.OutlinedTextFieldProps, "ref"> | Omit<{
     icon?: (_mui_material_OverridableComponent.OverridableComponent<_mui_material.SvgIconTypeMap<{}, "svg">> & {
         muiName: string;
     }) | undefined;
     iconPosition?: "left" | "right" | undefined;
     iconProps?: SvgIconProps | undefined;
-} & _mui_material.OutlinedTextFieldProps, "ref"> | Omit<{
+} & _mui_material.FilledTextFieldProps, "ref"> | Omit<{
     icon?: (_mui_material_OverridableComponent.OverridableComponent<_mui_material.SvgIconTypeMap<{}, "svg">> & {
         muiName: string;
     }) | undefined;
@@ -43,4 +51,4 @@ declare const TextField: react.ForwardRefExoticComponent<(Omit<{
 
 declare const theme: _mui_material.Theme;
 
-export { Button, type IButtonProps, type ITextFieldProps, TextField, theme };
+export { Button, type IButtonProps, type INavLinkProps, type ITextFieldProps, NavLink, TextField, theme };

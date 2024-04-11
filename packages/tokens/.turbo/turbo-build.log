@@ -1,5 +1,5 @@
 
-> @blue-health/tokens@1.0.0 build
+> @blue-health/tokens@1.0.1 build
 > tsup src/index.ts --format esm,cjs --dts
 
 [34mCLI[39m Building entry: src/index.ts
@@ -9,10 +9,10 @@
 [34mESM[39m Build start
 [34mCJS[39m Build start
 [34mDTS[39m Build start
-[32mCJS[39m [1mdist\index.js [22m[32m2.16 KB[39m
-[32mCJS[39m ⚡️ Build success in 804ms
-[32mESM[39m [1mdist\index.mjs [22m[32m1.05 KB[39m
-[32mESM[39m ⚡️ Build success in 805ms
-[32mDTS[39m ⚡️ Build success in 2023ms
-[32mDTS[39m [1mdist\index.d.mts [22m[32m1015.00 B[39m
-[32mDTS[39m [1mdist\index.d.ts  [22m[32m1015.00 B[39m
+[32mCJS[39m [1mdist\index.js [22m[32m2.13 KB[39m
+[32mCJS[39m ⚡️ Build success in 1031ms
+[32mESM[39m [1mdist\index.mjs [22m[32m1.01 KB[39m
+[32mESM[39m ⚡️ Build success in 1031ms
+[32mDTS[39m ⚡️ Build success in 1820ms
+[32mDTS[39m [1mdist\index.d.mts [22m[32m985.00 B[39m
+[32mDTS[39m [1mdist\index.d.ts  [22m[32m985.00 B[39m
