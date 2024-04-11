@@ -1,5 +1,11 @@
 # @blue-health/react
 
+## 2.2.0
+
+### Minor Changes
+
+- Create Nav Link component with variants
+
 ## 2.1.0
 
 ### Minor Changes
