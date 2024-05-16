@@ -8,6 +8,8 @@ var colors = {
   errorDark: "#C62828",
   success: "#2E7D32",
   successDark: "#1B5E20",
+  warning: "#EF6C00",
+  warningDark: "#D86100",
   textPrimary: "#2b2b2b",
   textSecondary: "#D7D7D7"
 };
@@ -27,6 +29,7 @@ var fontSizes = {
 var fontWeights = {
   regular: 400,
   medium: 500,
+  semibold: 600,
   bold: 700
 };
 

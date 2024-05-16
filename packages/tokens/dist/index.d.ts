@@ -7,6 +7,8 @@ declare const colors: {
     errorDark: string;
     success: string;
     successDark: string;
+    warning: string;
+    warningDark: string;
     textPrimary: string;
     textSecondary: string;
 };
@@ -24,6 +26,7 @@ declare const fontSizes: {
 declare const fontWeights: {
     regular: number;
     medium: number;
+    semibold: number;
     bold: number;
 };
 

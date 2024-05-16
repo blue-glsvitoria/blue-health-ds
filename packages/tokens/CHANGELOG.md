@@ -1,5 +1,12 @@
 # @blue-health/tokens
 
+## 1.0.2
+
+### Patch Changes
+
+- Refactor Button component and remove last components outdated
+  Create color for textPrimary, textSecondary, warning and warningDark
+
 ## 1.0.1
 
 ### Patch Changes

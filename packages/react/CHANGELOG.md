@@ -1,5 +1,12 @@
 # @blue-health/react
 
+## 3.0.0
+
+### Major Changes
+
+- Refactor Button component and remove last components outdated
+  Create color for textPrimary, textSecondary, warning and warningDark
+
 ## 2.2.0
 
 ### Minor Changes
