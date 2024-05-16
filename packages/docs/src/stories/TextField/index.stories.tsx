@@ -28,27 +28,27 @@ export const DefaultDisabled: StoryObj = {
   }
 }
 
-export const InternLabel = () => (
+export const InternalLabel = () => (
   <TextField.InternalLabel label="With Label" placeholder="Write anything here" />
 );
 
-export const InternLabelDisabled = () => (
+export const InternalLabelDisabled = () => (
   <TextField.InternalLabel label="With Label" placeholder="Write anything here" disabled />
 );
 
-export const InternLabelError = () => (
+export const InternalLabelError = () => (
   <TextField.InternalLabel label="With Label" placeholder="Write anything here" error={true} errorMessage="This is an error message" value="Wrong text" />
 );
 
-export const Label = () => (
+export const ExternalLabel = () => (
   <TextField.ExternalLabel label="With Label" placeholder="Write anything here" />
 );
 
-export const LabelDisabled = () => (
+export const ExternalLabelDisabled = () => (
   <TextField.ExternalLabel label="With Label" placeholder="Write anything here" disabled />
 );
 
-export const LabelError = () => (
+export const ExternalLabelError = () => (
   <TextField.ExternalLabel label="With Label" placeholder="Write anything here" error={true} errorMessage="This is an error message" value="Wrong text" />
 );
 
