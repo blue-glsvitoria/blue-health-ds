@@ -1,5 +1,11 @@
 # @blue-health/react
 
+## 3.1.1
+
+### Patch Changes
+
+- Adjust components to use tokens
+
 ## 3.1.0
 
 ### Minor Changes
