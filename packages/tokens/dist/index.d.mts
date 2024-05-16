@@ -11,6 +11,7 @@ declare const colors: {
     warningDark: string;
     textPrimary: string;
     textSecondary: string;
+    info: string;
 };
 
 declare const fontSizes: {

@@ -39,6 +39,10 @@ export const theme = createTheme({
       primary: colors.textPrimary,
       secondary: colors.textSecondary,
     },
+
+    info: {
+      main: colors.info,
+    },
   },
   typography: {
     fontFamily: fonts.default,

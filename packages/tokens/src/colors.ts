@@ -11,4 +11,5 @@ export const colors = {
   warningDark: "#D86100",
   textPrimary: "#2b2b2b",
   textSecondary: "#D7D7D7",
+  info: "#7A8A9D",
 };

@@ -312,6 +312,331 @@ var ButtonSmall = {
   OutlineGrey: ButtonSmallOutlineGrey
 };
 
+// src/components/TextField/Default/index.tsx
+import {
+  TextField as TextFieldMUI,
+  useTheme as useTheme8
+} from "@mui/material";
+import { forwardRef } from "react";
+
+// src/utils/masks.ts
+var masks = ({ type, data }) => {
+  switch (type) {
+    case "cpf":
+      return data.replace(/\D/g, "").replace(/(\d{3})(\d)/, "$1.$2").replace(/(\d{3})(\d)/, "$1.$2").replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+    case "cnpj":
+      return data.replace(/\D/g, "").replace(/(\d{2})(\d)/, "$1.$2").replace(/(\d{3})(\d)/, "$1.$2").replace(/(\d{3})(\d)/, "$1/$2").replace(/(\d{4})(\d)/, "$1-$2").replace(/(-\d{2})\d+?$/, "$1");
+    case "cep":
+      return data.replace(/\D/g, "").replace(/(\d{5})(\d)/, "$1-$2").replace(/(-\d{3})\d+?$/, "$1");
+    case "phone":
+      return data.replace(/\D/g, "").replace(/(\d{2})(\d)/, "($1) $2").replace(/(\d{5})(\d)/, "$1-$2").replace(/(-\d{4})(\d)/, "$1");
+    case "date":
+      return data.replace(/\D/g, "").replace(/(\d{2})(\d)/, "$1/$2").replace(/(\d{2})(\d)/, "$1/$2").replace(/(\d{4})\d+?$/, "$1");
+    case "currency":
+      return data.replace(/\D/g, "").replace(/(\d{1,})(\d{2})$/, "$1,$2").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+    case "code":
+      return data.replace(/\D/g, "").slice(0, 6);
+    default:
+      return data;
+  }
+};
+
+// src/components/TextField/Default/index.tsx
+import { jsx as jsx10 } from "react/jsx-runtime";
+var TextFieldDefault = forwardRef((_a, ref) => {
+  var _b = _a, { mask } = _b, props = __objRest(_b, ["mask"]);
+  const theme2 = useTheme8();
+  return /* @__PURE__ */ jsx10(
+    TextFieldMUI,
+    __spreadProps(__spreadValues({}, props), {
+      ref,
+      sx: __spreadValues({
+        "& fieldset": { border: "none" },
+        width: "100%",
+        backgroundColor: props.disabled ? "#D7D7D7" : "#FAFAFA",
+        borderRadius: "14px",
+        borderWidth: 1,
+        borderStyle: "solid",
+        border: (props == null ? void 0 : props.error) ? `1px solid ${theme2.palette.error.main}` : "1px solid #E0E0E0",
+        transition: "all 0.3s",
+        ":hover": {
+          backgroundColor: props.disabled ? "#D7D7D7" : "#F5F5F5"
+        }
+      }, props.sx),
+      onChange: (event) => {
+        var _a2;
+        if (mask) {
+          event.target.value = masks({
+            data: event.target.value,
+            type: mask
+          });
+        }
+        (_a2 = props.onChange) == null ? void 0 : _a2.call(props, event);
+      }
+    })
+  );
+});
+TextFieldDefault.displayName = "Default";
+
+// src/components/TextField/ExternalLabel/index.tsx
+import { ErrorOutline, Visibility, VisibilityOff } from "@mui/icons-material";
+import {
+  Box,
+  IconButton,
+  InputAdornment,
+  InputLabel,
+  Stack,
+  Typography,
+  useTheme as useTheme9
+} from "@mui/material";
+import { forwardRef as forwardRef2, useState } from "react";
+import { Link } from "react-router-dom";
+import { jsx as jsx11, jsxs } from "react/jsx-runtime";
+var TextFieldExternalLabel = forwardRef2(
+  (_a, ref) => {
+    var _b = _a, {
+      containerProps,
+      label,
+      visibilityChange = false,
+      labelProps,
+      errorMessage
+    } = _b, props = __objRest(_b, [
+      "containerProps",
+      "label",
+      "visibilityChange",
+      "labelProps",
+      "errorMessage"
+    ]);
+    const theme2 = useTheme9();
+    const [canSeeValue, setCanSeeValue] = useState(label !== "Senha");
+    const handleChangeCanSeeValue = () => {
+      setCanSeeValue((prev) => !prev);
+    };
+    return /* @__PURE__ */ jsxs(
+      Stack,
+      __spreadProps(__spreadValues({}, containerProps), {
+        sx: {
+          gap: 1
+        },
+        children: [
+          /* @__PURE__ */ jsxs(
+            Stack,
+            {
+              sx: {
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center"
+              },
+              children: [
+                /* @__PURE__ */ jsx11(
+                  InputLabel,
+                  __spreadProps(__spreadValues({}, labelProps), {
+                    sx: {
+                      fontSize: 16,
+                      fontWeight: 600,
+                      color: props.error ? theme2.palette.error.main : theme2.palette.text.primary
+                    },
+                    htmlFor: label,
+                    children: label
+                  })
+                ),
+                label === "Senha" && /* @__PURE__ */ jsx11(
+                  Box,
+                  {
+                    component: Link,
+                    sx: {
+                      color: "#000"
+                    },
+                    to: "/acesso/recuperar",
+                    children: "Esqueci minha senha"
+                  }
+                )
+              ]
+            }
+          ),
+          /* @__PURE__ */ jsx11(
+            TextField.Default,
+            __spreadProps(__spreadValues({}, props), {
+              ref,
+              id: label,
+              type: canSeeValue ? "text" : "password",
+              sx: __spreadValues({
+                "& ::placeholder": {
+                  color: theme2.palette.info.main,
+                  opacity: 1
+                }
+              }, props.sx),
+              InputProps: {
+                endAdornment: visibilityChange && /* @__PURE__ */ jsx11(InputAdornment, { position: "end", children: /* @__PURE__ */ jsx11(
+                  IconButton,
+                  {
+                    "aria-label": "Altere a visibilidade",
+                    onClick: handleChangeCanSeeValue,
+                    edge: "end",
+                    children: canSeeValue ? /* @__PURE__ */ jsx11(VisibilityOff, {}) : /* @__PURE__ */ jsx11(Visibility, {})
+                  }
+                ) })
+              }
+            })
+          ),
+          (props == null ? void 0 : props.error) && /* @__PURE__ */ jsxs(
+            Stack,
+            {
+              sx: {
+                color: theme2.palette.error.main,
+                flexDirection: "row",
+                gap: 1
+              },
+              children: [
+                /* @__PURE__ */ jsx11(
+                  ErrorOutline,
+                  {
+                    sx: {
+                      width: 16,
+                      height: 16
+                    }
+                  }
+                ),
+                /* @__PURE__ */ jsx11(
+                  Typography,
+                  {
+                    variant: "caption",
+                    sx: {
+                      fontSize: 12
+                    },
+                    children: errorMessage
+                  }
+                )
+              ]
+            }
+          )
+        ]
+      })
+    );
+  }
+);
+TextFieldExternalLabel.displayName = "External Label";
+
+// src/components/TextField/Icon/index.tsx
+import { InputAdornment as InputAdornment2, useTheme as useTheme10 } from "@mui/material";
+import { forwardRef as forwardRef3 } from "react";
+import { jsx as jsx12 } from "react/jsx-runtime";
+var TextFieldIcon = forwardRef3(
+  (_a, ref) => {
+    var _b = _a, { icon } = _b, props = __objRest(_b, ["icon"]);
+    var _a2;
+    const theme2 = useTheme10();
+    return /* @__PURE__ */ jsx12(
+      TextField.Default,
+      __spreadProps(__spreadValues({}, props), {
+        ref,
+        sx: __spreadValues({
+          "& ::placeholder": {
+            color: theme2.palette.info.main,
+            fontWeight: 600,
+            opacity: 1
+          }
+        }, props.sx),
+        InputProps: __spreadValues({
+          sx: __spreadValues({
+            height: 52
+          }, (_a2 = props.InputProps) == null ? void 0 : _a2.sx),
+          startAdornment: /* @__PURE__ */ jsx12(InputAdornment2, { position: "start", children: icon })
+        }, props.InputProps)
+      })
+    );
+  }
+);
+TextFieldIcon.displayName = "Icon";
+
+// src/components/TextField/InternalLabel/index.tsx
+import { ErrorOutline as ErrorOutline2 } from "@mui/icons-material";
+import { FormControl, Stack as Stack2, Typography as Typography2, useTheme as useTheme11 } from "@mui/material";
+import { forwardRef as forwardRef4 } from "react";
+import { jsx as jsx13, jsxs as jsxs2 } from "react/jsx-runtime";
+var TextFieldInternalLabel = forwardRef4((_a, ref) => {
+  var _b = _a, { errorMessage } = _b, props = __objRest(_b, ["errorMessage"]);
+  const theme2 = useTheme11();
+  return /* @__PURE__ */ jsxs2(
+    FormControl,
+    {
+      fullWidth: true,
+      sx: {
+        display: "flex",
+        flexDirection: "column",
+        gap: 1
+      },
+      children: [
+        /* @__PURE__ */ jsx13(
+          TextField.Default,
+          __spreadProps(__spreadValues({}, props), {
+            ref,
+            variant: "filled",
+            sx: __spreadValues({
+              "& .MuiFormLabel-root": {
+                color: props.error ? theme2.palette.error.main : theme2.palette.info.main,
+                fontWeight: 600
+              },
+              "& .MuiInputBase-root": {
+                borderRadius: "14px",
+                backgroundColor: "transparent"
+              },
+              ":focus": {
+                "& .MuiFormLabel-root": {
+                  color: props.error ? theme2.palette.error.main : theme2.palette.info.main
+                }
+              }
+            }, props.sx),
+            InputProps: __spreadValues({
+              disableUnderline: true
+            }, props.InputProps)
+          })
+        ),
+        (props == null ? void 0 : props.error) && /* @__PURE__ */ jsxs2(
+          Stack2,
+          {
+            sx: {
+              color: theme2.palette.error.main,
+              flexDirection: "row",
+              gap: 1
+            },
+            children: [
+              /* @__PURE__ */ jsx13(
+                ErrorOutline2,
+                {
+                  sx: {
+                    width: 16,
+                    height: 16
+                  }
+                }
+              ),
+              /* @__PURE__ */ jsx13(
+                Typography2,
+                {
+                  variant: "caption",
+                  sx: {
+                    fontSize: 12
+                  },
+                  children: errorMessage
+                }
+              )
+            ]
+          }
+        )
+      ]
+    }
+  );
+});
+TextFieldInternalLabel.displayName = "Internal Label";
+
+// src/components/TextField/index.ts
+var TextField = {
+  Default: TextFieldDefault,
+  Icon: TextFieldIcon,
+  ExternalLabel: TextFieldExternalLabel,
+  InternalLabel: TextFieldInternalLabel
+};
+
 // ../tokens/dist/index.mjs
 var colors = {
   primary: "#000CFF",
@@ -325,7 +650,8 @@ var colors = {
   warning: "#EF6C00",
   warningDark: "#D86100",
   textPrimary: "#2b2b2b",
-  textSecondary: "#D7D7D7"
+  textSecondary: "#D7D7D7",
+  info: "#7A8A9D"
 };
 var fonts = {
   default: "Figtree, sans-serif"
@@ -362,6 +688,9 @@ var theme = createTheme({
     text: {
       primary: colors.textPrimary,
       secondary: colors.textSecondary
+    },
+    info: {
+      main: colors.info
     }
   },
   typography: {
@@ -384,5 +713,6 @@ var theme = createTheme({
 export {
   Button,
   ButtonSmall,
+  TextField,
   theme
 };
