@@ -9,18 +9,32 @@ export const theme = createTheme({
       main: colors.primary,
       dark: colors.primaryDark,
     },
+
     secondary: {
       main: colors.secondary,
       dark: colors.secondaryDark,
     },
+
+    common: {
+      white: "#FFFFFF",
+      black: "#000000",
+    },
+
     error: {
       main: colors.error,
       dark: colors.errorDark,
     },
+
     success: {
       main: colors.success,
       dark: colors.successDark,
     },
+
+    warning: {
+      main: colors.warning,
+      dark: colors.warningDark,
+    },
+
     text: {
       primary: colors.textPrimary,
       secondary: colors.textSecondary,

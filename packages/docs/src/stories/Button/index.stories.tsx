@@ -1,11 +1,9 @@
-import { Button, IButtonProps } from "@blue-health/react"
-import { AddBox } from "@mui/icons-material"
-
+import { Button, ButtonProps } from "@blue-health/react"
 import type { StoryObj, Meta } from "@storybook/react"
 
 const meta = {
   title: "Design System/Button",
-  component: Button,
+  component: Button.Default,
   argTypes: {
     children: {
       type: 'string'
@@ -13,71 +11,39 @@ const meta = {
     disabled: {
       type: 'boolean'
     },
-    buttonVariant: {
-      type: 'string',
-      options: ['primary', 'primary-outline', 'error', 'error-outline']
-    },
-    icon: {
-      type: 'string'
-    },
-    iconPosition: {
-      type: 'string',
-      options: ['left', 'right']
-    },
     onClick: { action: 'clicked' },
   },
   args: {
     children: "Click me",
-    buttonVariant: "primary",
   },
-} satisfies Meta<IButtonProps>
+} satisfies Meta<ButtonProps>
 
 export default meta
 
-export const Primary: StoryObj = {
-  args: {},
+export const Default: StoryObj = {
+  args: {}
 }
 
-export const PrimaryOutline: StoryObj = {
-  args: {
-    buttonVariant: "primary-outline",
-  },
-}
+export const Primary = () => (
+  <Button.Primary>
+    Primary
+  </Button.Primary>
+);
 
-export const Error: StoryObj = {
-  args: {
-    buttonVariant: "error",
-  },
-}
+export const PrimaryDisabled = () => (
+  <Button.Primary disabled>
+    Primary Disabled
+  </Button.Primary>
+);
 
-export const ErrorOutline: StoryObj = {
-  args: {
-    buttonVariant: "error-outline",
-  },
-}
+export const OutlineGrey = () => (
+  <Button.OutlineGrey>
+    Outline Grey
+  </Button.OutlineGrey>
+);
 
-export const WithLeftIcon: StoryObj = {
-  args: {
-    icon: AddBox,
-    iconPosition: "left",
-  },
-}
-
-export const WithRightIcon: StoryObj = {
-  args: {
-    icon: AddBox,
-    iconPosition: "right",
-  },
-}
-
-export const Disabled: StoryObj = {
-  args: {
-    disabled: true,
-  },
-}
-
-export const Small: StoryObj = {
-  args: {
-    size: "small",
-  }
-}
+export const OutlineGreyDisabled = () => (
+  <Button.OutlineGrey disabled>
+    Outline Grey Disabled
+  </Button.OutlineGrey>
+);
