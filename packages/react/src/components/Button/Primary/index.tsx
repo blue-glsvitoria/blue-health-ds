@@ -15,7 +15,7 @@ export const ButtonPrimary = ({ children, ...props }: IButtonPrimaryProps) => {
       sx={{
         backgroundColor: theme.palette.primary.main,
         color: theme.palette.common.white,
-        transition: "all 0.3s",
+        borderColor: "inherit",
         ":hover": {
           backgroundColor: theme.palette.primary.dark,
         },

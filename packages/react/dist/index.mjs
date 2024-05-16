@@ -30,6 +30,65 @@ var __objRest = (source, exclude) => {
   return target;
 };
 
+// ../tokens/dist/index.mjs
+var colors = {
+  primary: "#000CFF",
+  primaryDark: "#1F00AE",
+  secondary: "#00D8FF",
+  secondaryDark: "#00B9DB",
+  error: "#D32F2F",
+  errorDark: "#C62828",
+  success: "#2E7D32",
+  successDark: "#1B5E20",
+  warning: "#EF6C00",
+  warningDark: "#D86100",
+  textPrimary: "#2b2b2b",
+  textSecondary: "#D7D7D7",
+  info: "#7A8A9D"
+};
+var fontSizes = {
+  xs: "0.75rem",
+  sm: "0.875rem",
+  md: "1rem",
+  lg: "1.125rem",
+  xl: "1.3125rem",
+  "2xl": "1.5rem",
+  "3xl": "2rem"
+};
+var fontWeights = {
+  regular: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700
+};
+var fonts = {
+  default: "Figtree, sans-serif"
+};
+var radii = {
+  xs: "4px",
+  sm: "8px",
+  md: "16px",
+  lg: "26px",
+  full: "9999px"
+};
+var space = {
+  1: "0.25rem",
+  2: "0.5rem",
+  3: "0.75rem",
+  4: "1rem",
+  5: "1.25rem",
+  6: "1.5rem",
+  7: "1.75rem",
+  8: "2rem",
+  10: "2.5rem",
+  12: "3rem",
+  16: "4rem",
+  20: "5rem",
+  40: "10rem",
+  64: "16rem",
+  80: "20rem"
+};
+
 // src/components/Button/Default/index.tsx
 import {
   Button as ButtonMUI
@@ -41,11 +100,14 @@ function ButtonDefault(_a) {
     ButtonMUI,
     __spreadProps(__spreadValues({}, props), {
       sx: __spreadValues({
-        borderRadius: 1,
-        px: 2,
-        py: 1,
-        fontSize: 16,
-        fontWeight: 700,
+        borderRadius: radii.md,
+        px: space[4],
+        py: space[2],
+        borderStyle: "solid",
+        borderWidth: 2,
+        fontSize: fontSizes.md,
+        fontWeight: fontWeights.bold,
+        transition: "all 0.3s",
         textTransform: "none",
         width: "100%"
       }, props.sx),
@@ -69,18 +131,15 @@ var ButtonOutlineGrey = (_a) => {
     __spreadProps(__spreadValues({}, props), {
       sx: __spreadValues({
         backgroundColor: "#FAFAFA",
-        borderColor: "#E8EDFF",
-        borderStyle: "solid",
-        borderWidth: 2,
+        borderColor: theme2.palette.info.main,
         color: theme2.palette.info.main,
-        transition: "all 0.3s",
         "&:hover": {
           backgroundColor: "#E8EDFF"
         },
         ":disabled": {
           backgroundColor: "#D7D7D7",
           color: theme2.palette.common.white,
-          borderWidth: 0
+          borderColor: "#D7D7D7"
         }
       }, props.sx),
       children
@@ -100,7 +159,7 @@ var ButtonPrimary = (_a) => {
       sx: __spreadValues({
         backgroundColor: theme2.palette.primary.main,
         color: theme2.palette.common.white,
-        transition: "all 0.3s",
+        borderColor: "inherit",
         ":hover": {
           backgroundColor: theme2.palette.primary.dark
         },
@@ -136,10 +195,10 @@ var ButtonSmallDefault = (_a) => {
     ButtonMUI2,
     __spreadProps(__spreadValues({}, props), {
       sx: __spreadValues({
-        borderRadius: 2,
-        px: 2,
-        fontSize: 14,
-        fontWeight: 700,
+        borderRadius: radii.md,
+        px: space[4],
+        fontSize: fontSizes.sm,
+        fontWeight: fontWeights.bold,
         textTransform: "none",
         transition: "all 0.3s",
         width: "100%",
@@ -635,26 +694,6 @@ var TextField = {
   Icon: TextFieldIcon,
   ExternalLabel: TextFieldExternalLabel,
   InternalLabel: TextFieldInternalLabel
-};
-
-// ../tokens/dist/index.mjs
-var colors = {
-  primary: "#000CFF",
-  primaryDark: "#1F00AE",
-  secondary: "#00D8FF",
-  secondaryDark: "#00B9DB",
-  error: "#D32F2F",
-  errorDark: "#C62828",
-  success: "#2E7D32",
-  successDark: "#1B5E20",
-  warning: "#EF6C00",
-  warningDark: "#D86100",
-  textPrimary: "#2b2b2b",
-  textSecondary: "#D7D7D7",
-  info: "#7A8A9D"
-};
-var fonts = {
-  default: "Figtree, sans-serif"
 };
 
 // src/styles/theme.ts

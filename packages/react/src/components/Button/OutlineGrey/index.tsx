@@ -17,18 +17,15 @@ export const ButtonOutlineGrey = ({
       {...props}
       sx={{
         backgroundColor: "#FAFAFA",
-        borderColor: "#E8EDFF",
-        borderStyle: "solid",
-        borderWidth: 2,
+        borderColor: theme.palette.info.main,
         color: theme.palette.info.main,
-        transition: "all 0.3s",
         "&:hover": {
           backgroundColor: "#E8EDFF",
         },
         ":disabled": {
           backgroundColor: "#D7D7D7",
           color: theme.palette.common.white,
-          borderWidth: 0,
+          borderColor: "#D7D7D7",
         },
         ...props.sx,
       }}
