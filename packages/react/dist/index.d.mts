@@ -1,7 +1,7 @@
 import * as react_jsx_runtime from 'react/jsx-runtime';
 import * as _mui_material_OverridableComponent from '@mui/material/OverridableComponent';
 import * as _mui_material from '@mui/material';
-import { ButtonProps as ButtonProps$1 } from '@mui/material';
+import { ButtonProps as ButtonProps$1, TextFieldProps as TextFieldProps$1 } from '@mui/material';
 import * as react from 'react';
 import react__default from 'react';
 
@@ -71,6 +71,64 @@ declare const ButtonSmall: {
 };
 type ButtonSmallProps = IButtonSmallDefaultProps;
 
+type MasksType = "cpf" | "cnpj" | "phone" | "date" | "cep" | "currency" | "code";
+
+type TextFieldDefaultProps = {
+    mask?: MasksType;
+} & TextFieldProps$1;
+
+declare const TextField: {
+    Default: react.ForwardRefExoticComponent<(Omit<{
+        mask?: MasksType | undefined;
+    } & _mui_material.FilledTextFieldProps, "ref"> | Omit<{
+        mask?: MasksType | undefined;
+    } & _mui_material.OutlinedTextFieldProps, "ref"> | Omit<{
+        mask?: MasksType | undefined;
+    } & _mui_material.StandardTextFieldProps, "ref">) & react.RefAttributes<HTMLDivElement>>;
+    Icon: react.ForwardRefExoticComponent<Omit<{
+        icon: react.ReactNode;
+    } & Omit<TextFieldDefaultProps, "label">, "ref"> & react.RefAttributes<HTMLDivElement>>;
+    ExternalLabel: react.ForwardRefExoticComponent<(Omit<{
+        label: string;
+        visibilityChange?: boolean | undefined;
+        containerProps?: _mui_material.StackProps | undefined;
+        labelProps?: _mui_material.InputLabelProps | undefined;
+        errorMessage?: string | undefined;
+    } & {
+        mask?: MasksType | undefined;
+    } & _mui_material.FilledTextFieldProps, "ref"> | Omit<{
+        label: string;
+        visibilityChange?: boolean | undefined;
+        containerProps?: _mui_material.StackProps | undefined;
+        labelProps?: _mui_material.InputLabelProps | undefined;
+        errorMessage?: string | undefined;
+    } & {
+        mask?: MasksType | undefined;
+    } & _mui_material.OutlinedTextFieldProps, "ref"> | Omit<{
+        label: string;
+        visibilityChange?: boolean | undefined;
+        containerProps?: _mui_material.StackProps | undefined;
+        labelProps?: _mui_material.InputLabelProps | undefined;
+        errorMessage?: string | undefined;
+    } & {
+        mask?: MasksType | undefined;
+    } & _mui_material.StandardTextFieldProps, "ref">) & react.RefAttributes<HTMLDivElement>>;
+    InternalLabel: react.ForwardRefExoticComponent<(Omit<{
+        errorMessage?: string | undefined;
+    } & {
+        mask?: MasksType | undefined;
+    } & _mui_material.FilledTextFieldProps, "ref"> | Omit<{
+        errorMessage?: string | undefined;
+    } & {
+        mask?: MasksType | undefined;
+    } & _mui_material.OutlinedTextFieldProps, "ref"> | Omit<{
+        errorMessage?: string | undefined;
+    } & {
+        mask?: MasksType | undefined;
+    } & _mui_material.StandardTextFieldProps, "ref">) & react.RefAttributes<HTMLDivElement>>;
+};
+type TextFieldProps = TextFieldDefaultProps;
+
 declare const theme: _mui_material.Theme;
 
-export { Button, type ButtonProps, ButtonSmall, type ButtonSmallProps, theme };
+export { Button, type ButtonProps, ButtonSmall, type ButtonSmallProps, TextField, type TextFieldProps, theme };

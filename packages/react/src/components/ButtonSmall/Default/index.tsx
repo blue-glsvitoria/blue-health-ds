@@ -1,3 +1,4 @@
+import { fontSizes, fontWeights, radii, space } from "@blue-health/tokens";
 import {
   Button as ButtonMUI,
   ButtonProps as MUIButtonProps,
@@ -16,10 +17,10 @@ export const ButtonSmallDefault = ({
     <ButtonMUI
       {...props}
       sx={{
-        borderRadius: 2,
-        px: 2,
-        fontSize: 14,
-        fontWeight: 700,
+        borderRadius: radii.md,
+        px: space[4],
+        fontSize: fontSizes.sm,
+        fontWeight: fontWeights.bold,
         textTransform: "none",
         transition: "all 0.3s",
         width: "100%",

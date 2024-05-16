@@ -1,5 +1,11 @@
 # @blue-health/tokens
 
+## 1.0.3
+
+### Patch Changes
+
+- Add info.main color
+
 ## 1.0.2
 
 ### Patch Changes
