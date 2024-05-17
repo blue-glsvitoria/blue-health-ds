@@ -71,14 +71,22 @@ declare const ButtonSmall: {
 };
 type ButtonSmallProps = IButtonSmallDefaultProps;
 
+type CollapseNavLinkItem<T = any> = {
+    icon?: ReactNode;
+    label: string;
+    to: string;
+    module: T;
+};
 type NavLinkProps<T = any> = {
     icon?: ReactNode;
     label: string;
     module?: T;
+    onClick?: () => void;
     to: string;
+    subItens: CollapseNavLinkItem<T>[];
     variant?: "icon" | "standard";
 };
-declare const NavLink: ({ icon, label, to, variant, }: NavLinkProps) => react_jsx_runtime.JSX.Element;
+declare const NavLink: ({ icon, label, to, subItens: items, variant, onClick, }: NavLinkProps) => react_jsx_runtime.JSX.Element;
 
 type MasksType = "cpf" | "cnpj" | "phone" | "date" | "cep" | "currency" | "code";
 

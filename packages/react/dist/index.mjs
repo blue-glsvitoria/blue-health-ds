@@ -372,21 +372,186 @@ var ButtonSmall = {
 };
 
 // src/components/NavLink/index.tsx
-import { Box, Typography, useTheme as useTheme8 } from "@mui/material";
+import { ChevronRight } from "@mui/icons-material";
+import { Box, Collapse, Typography, useTheme as useTheme8 } from "@mui/material";
+import { useEffect, useState } from "react";
 import * as RouterDOM from "react-router-dom";
 import { jsx as jsx10, jsxs } from "react/jsx-runtime";
 var NavLink2 = ({
   icon = "",
   label = "",
   to = "",
-  variant = "standard"
+  subItens: items = [],
+  variant = "standard",
+  onClick
 }) => {
   const theme2 = useTheme8();
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const location = RouterDOM.useLocation();
+  useEffect(() => {
+    var _a;
+    if ((_a = items == null ? void 0 : items.some) == null ? void 0 : _a.call(items, (item) => {
+      var _a2, _b;
+      return (_b = (_a2 = location == null ? void 0 : location.pathname) == null ? void 0 : _a2.includes) == null ? void 0 : _b.call(_a2, item == null ? void 0 : item.to);
+    })) {
+      setIsCollapsed(true);
+    } else {
+      setIsCollapsed(false);
+    }
+  }, [items, location == null ? void 0 : location.pathname]);
+  const handleCollapse = () => {
+    setIsCollapsed((prev) => !prev);
+  };
+  const handleClickIcon = () => {
+    onClick == null ? void 0 : onClick();
+    if (!isCollapsed) {
+      setIsCollapsed(true);
+    }
+  };
+  if (items.length > 0) {
+    return /* @__PURE__ */ jsxs(
+      Box,
+      {
+        sx: {
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          overflow: "hidden"
+        },
+        children: [
+          /* @__PURE__ */ jsxs(
+            Box,
+            {
+              onClick: variant === "icon" ? handleClickIcon : handleCollapse,
+              sx: {
+                width: "100%",
+                height: 24,
+                px: space[4],
+                display: "flex",
+                alignItems: "center",
+                gap: space[4],
+                cursor: "pointer",
+                color: isCollapsed ? theme2.palette.primary.main : theme2.palette.text.primary,
+                fontSize: fontSizes.sm,
+                fontWeight: isCollapsed ? fontWeights.semibold : fontWeights.regular,
+                transition: "all 0.1s ease-in-out",
+                whiteSpace: "nowrap",
+                userSelect: "none",
+                ":hover": {
+                  color: theme2.palette.primary.main
+                },
+                "> *": {
+                  marginRight: variant === "icon" ? "auto" : 0
+                }
+              },
+              children: [
+                !!icon && /* @__PURE__ */ jsx10(Box, { sx: { width: 24, height: 24 }, children: icon }),
+                variant === "standard" && !!label && label,
+                /* @__PURE__ */ jsx10(
+                  Box,
+                  {
+                    sx: {
+                      display: variant === "icon" ? "none" : "flex",
+                      justifyContent: "end",
+                      width: "100%"
+                    },
+                    children: /* @__PURE__ */ jsx10(
+                      Box,
+                      {
+                        sx: {
+                          backgroundColor: isCollapsed ? theme2.palette.primary.main : "transparent",
+                          color: isCollapsed ? "white" : theme2.palette.text.primary,
+                          borderRadius: 1,
+                          padding: 1 / 7,
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          transition: "all 0.1s ease-in-out"
+                        },
+                        children: /* @__PURE__ */ jsx10(
+                          ChevronRight,
+                          {
+                            fontSize: "small",
+                            style: {
+                              transform: isCollapsed ? "rotate(90deg)" : "rotate(0deg)",
+                              transition: "all 0.1s ease"
+                            }
+                          }
+                        )
+                      }
+                    )
+                  }
+                )
+              ]
+            }
+          ),
+          variant === "standard" && /* @__PURE__ */ jsx10(
+            Collapse,
+            {
+              in: isCollapsed,
+              sx: {
+                userSelect: "none"
+              },
+              children: /* @__PURE__ */ jsx10(
+                Box,
+                {
+                  sx: {
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: space[6],
+                    marginTop: space[4]
+                  },
+                  children: items == null ? void 0 : items.map((item, index) => /* @__PURE__ */ jsx10(
+                    RouterDOM.NavLink,
+                    {
+                      to: item == null ? void 0 : item.to,
+                      style: { textDecoration: "none" },
+                      draggable: false,
+                      children: ({ isActive }) => {
+                        return /* @__PURE__ */ jsxs(
+                          Box,
+                          {
+                            sx: {
+                              height: 24,
+                              width: "100%",
+                              px: space[8],
+                              display: "flex",
+                              justifyContent: "start",
+                              alignItems: "center",
+                              gap: 1,
+                              color: isActive ? theme2.palette.primary.main : theme2.palette.text.primary,
+                              fontSize: 14,
+                              fontWeight: isActive ? 600 : 400,
+                              transition: "all 0.1s ease-in-out",
+                              whiteSpace: "nowrap",
+                              userSelect: "none",
+                              ":hover": {
+                                color: theme2.palette.primary.main
+                              }
+                            },
+                            children: [
+                              !!(item == null ? void 0 : item.icon) && /* @__PURE__ */ jsx10(Box, { sx: { height: 24, width: 24 }, children: item == null ? void 0 : item.icon }),
+                              variant === "standard" && !!(item == null ? void 0 : item.label) && (item == null ? void 0 : item.label)
+                            ]
+                          }
+                        );
+                      }
+                    },
+                    index
+                  ))
+                }
+              )
+            }
+          )
+        ]
+      }
+    );
+  }
   return /* @__PURE__ */ jsx10(
     Box,
     {
       sx: {
-        borderRadius: 1,
+        borderRadius: radii.md,
         display: "flex",
         flexDirection: "column",
         overflow: "hidden",
@@ -522,7 +687,7 @@ import {
   Typography as Typography2,
   useTheme as useTheme10
 } from "@mui/material";
-import { forwardRef as forwardRef2, useState } from "react";
+import { forwardRef as forwardRef2, useState as useState2 } from "react";
 import { Link } from "react-router-dom";
 import { jsx as jsx12, jsxs as jsxs2 } from "react/jsx-runtime";
 var TextFieldExternalLabel = forwardRef2(
@@ -541,7 +706,7 @@ var TextFieldExternalLabel = forwardRef2(
       "errorMessage"
     ]);
     const theme2 = useTheme10();
-    const [canSeeValue, setCanSeeValue] = useState(label !== "Senha");
+    const [canSeeValue, setCanSeeValue] = useState2(label !== "Senha");
     const handleChangeCanSeeValue = () => {
       setCanSeeValue((prev) => !prev);
     };

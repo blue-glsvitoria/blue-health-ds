@@ -1,5 +1,5 @@
 import { NavLink, NavLinkProps } from "@blue-health/react"
-import { Home } from "@mui/icons-material"
+import { BarChart, Home, List, People } from "@mui/icons-material"
 import type { StoryObj, Meta } from "@storybook/react"
 import { BrowserRouter } from "react-router-dom"
 
@@ -24,11 +24,17 @@ const meta = {
     },
     module: {
       type: 'string'
+    },
+    onClick: {
+      type: 'function'
+    },
+    subItens: {
+      type: 'string'
     }
   },
   args: {
     icon: <Home />,
-    label: "Click here",
+    label: "Dashboard",
     to: "",
   },
   decorators:[
@@ -49,7 +55,6 @@ export const Default: StoryObj = {
 
 export const Selected: StoryObj = {
   args: {
-    label: "Selected",
     to: "?path=/docs/design-system-navlink--docs"
   }
 }
@@ -65,5 +70,51 @@ export const IconSelected: StoryObj = {
   args: {
     variant: "icon",
     to: "?path=/docs/design-system-navlink--docs"
+  }
+}
+
+export const Collapse: StoryObj = {
+  args: {
+    subItens: [
+      {
+        label: "List",
+        icon: <List />,
+        to: "/list",
+      }
+    ]
+  }
+}
+
+export const CollapseOpen: StoryObj = {
+  args: {
+    subItens: [
+      {
+        label: "List",
+        icon: <List />,
+        to: "/",
+      }
+    ]
+  }
+}
+
+export const CollapseOpenWithMoreOptions: StoryObj = {
+  args: {
+    subItens: [
+      {
+        label: "List",
+        icon: <List />,
+        to: "/",
+      },
+      {
+        label: "Beneficiaries",
+        icon: <People />,
+        to: "/",
+      },
+      {
+        label: "Proposals",
+        icon: <BarChart />,
+        to: "/",
+      }
+    ]
   }
 }

@@ -405,21 +405,186 @@ var ButtonSmall = {
 };
 
 // src/components/NavLink/index.tsx
+var import_icons_material = require("@mui/icons-material");
 var import_material10 = require("@mui/material");
+var import_react = require("react");
 var RouterDOM = __toESM(require("react-router-dom"));
 var import_jsx_runtime10 = require("react/jsx-runtime");
 var NavLink2 = ({
   icon = "",
   label = "",
   to = "",
-  variant = "standard"
+  subItens: items = [],
+  variant = "standard",
+  onClick
 }) => {
   const theme2 = (0, import_material10.useTheme)();
+  const [isCollapsed, setIsCollapsed] = (0, import_react.useState)(false);
+  const location = RouterDOM.useLocation();
+  (0, import_react.useEffect)(() => {
+    var _a;
+    if ((_a = items == null ? void 0 : items.some) == null ? void 0 : _a.call(items, (item) => {
+      var _a2, _b;
+      return (_b = (_a2 = location == null ? void 0 : location.pathname) == null ? void 0 : _a2.includes) == null ? void 0 : _b.call(_a2, item == null ? void 0 : item.to);
+    })) {
+      setIsCollapsed(true);
+    } else {
+      setIsCollapsed(false);
+    }
+  }, [items, location == null ? void 0 : location.pathname]);
+  const handleCollapse = () => {
+    setIsCollapsed((prev) => !prev);
+  };
+  const handleClickIcon = () => {
+    onClick == null ? void 0 : onClick();
+    if (!isCollapsed) {
+      setIsCollapsed(true);
+    }
+  };
+  if (items.length > 0) {
+    return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
+      import_material10.Box,
+      {
+        sx: {
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          overflow: "hidden"
+        },
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
+            import_material10.Box,
+            {
+              onClick: variant === "icon" ? handleClickIcon : handleCollapse,
+              sx: {
+                width: "100%",
+                height: 24,
+                px: space[4],
+                display: "flex",
+                alignItems: "center",
+                gap: space[4],
+                cursor: "pointer",
+                color: isCollapsed ? theme2.palette.primary.main : theme2.palette.text.primary,
+                fontSize: fontSizes.sm,
+                fontWeight: isCollapsed ? fontWeights.semibold : fontWeights.regular,
+                transition: "all 0.1s ease-in-out",
+                whiteSpace: "nowrap",
+                userSelect: "none",
+                ":hover": {
+                  color: theme2.palette.primary.main
+                },
+                "> *": {
+                  marginRight: variant === "icon" ? "auto" : 0
+                }
+              },
+              children: [
+                !!icon && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_material10.Box, { sx: { width: 24, height: 24 }, children: icon }),
+                variant === "standard" && !!label && label,
+                /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+                  import_material10.Box,
+                  {
+                    sx: {
+                      display: variant === "icon" ? "none" : "flex",
+                      justifyContent: "end",
+                      width: "100%"
+                    },
+                    children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+                      import_material10.Box,
+                      {
+                        sx: {
+                          backgroundColor: isCollapsed ? theme2.palette.primary.main : "transparent",
+                          color: isCollapsed ? "white" : theme2.palette.text.primary,
+                          borderRadius: 1,
+                          padding: 1 / 7,
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          transition: "all 0.1s ease-in-out"
+                        },
+                        children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+                          import_icons_material.ChevronRight,
+                          {
+                            fontSize: "small",
+                            style: {
+                              transform: isCollapsed ? "rotate(90deg)" : "rotate(0deg)",
+                              transition: "all 0.1s ease"
+                            }
+                          }
+                        )
+                      }
+                    )
+                  }
+                )
+              ]
+            }
+          ),
+          variant === "standard" && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+            import_material10.Collapse,
+            {
+              in: isCollapsed,
+              sx: {
+                userSelect: "none"
+              },
+              children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+                import_material10.Box,
+                {
+                  sx: {
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: space[6],
+                    marginTop: space[4]
+                  },
+                  children: items == null ? void 0 : items.map((item, index) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+                    RouterDOM.NavLink,
+                    {
+                      to: item == null ? void 0 : item.to,
+                      style: { textDecoration: "none" },
+                      draggable: false,
+                      children: ({ isActive }) => {
+                        return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
+                          import_material10.Box,
+                          {
+                            sx: {
+                              height: 24,
+                              width: "100%",
+                              px: space[8],
+                              display: "flex",
+                              justifyContent: "start",
+                              alignItems: "center",
+                              gap: 1,
+                              color: isActive ? theme2.palette.primary.main : theme2.palette.text.primary,
+                              fontSize: 14,
+                              fontWeight: isActive ? 600 : 400,
+                              transition: "all 0.1s ease-in-out",
+                              whiteSpace: "nowrap",
+                              userSelect: "none",
+                              ":hover": {
+                                color: theme2.palette.primary.main
+                              }
+                            },
+                            children: [
+                              !!(item == null ? void 0 : item.icon) && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_material10.Box, { sx: { height: 24, width: 24 }, children: item == null ? void 0 : item.icon }),
+                              variant === "standard" && !!(item == null ? void 0 : item.label) && (item == null ? void 0 : item.label)
+                            ]
+                          }
+                        );
+                      }
+                    },
+                    index
+                  ))
+                }
+              )
+            }
+          )
+        ]
+      }
+    );
+  }
   return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
     import_material10.Box,
     {
       sx: {
-        borderRadius: 1,
+        borderRadius: radii.md,
         display: "flex",
         flexDirection: "column",
         overflow: "hidden",
@@ -480,7 +645,7 @@ var NavLink2 = ({
 
 // src/components/TextField/Default/index.tsx
 var import_material11 = require("@mui/material");
-var import_react = require("react");
+var import_react2 = require("react");
 
 // src/utils/masks.ts
 var masks = ({ type, data }) => {
@@ -506,7 +671,7 @@ var masks = ({ type, data }) => {
 
 // src/components/TextField/Default/index.tsx
 var import_jsx_runtime11 = require("react/jsx-runtime");
-var TextFieldDefault = (0, import_react.forwardRef)((_a, ref) => {
+var TextFieldDefault = (0, import_react2.forwardRef)((_a, ref) => {
   var _b = _a, { mask } = _b, props = __objRest(_b, ["mask"]);
   const theme2 = (0, import_material11.useTheme)();
   return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
@@ -542,12 +707,12 @@ var TextFieldDefault = (0, import_react.forwardRef)((_a, ref) => {
 TextFieldDefault.displayName = "Default";
 
 // src/components/TextField/ExternalLabel/index.tsx
-var import_icons_material = require("@mui/icons-material");
+var import_icons_material2 = require("@mui/icons-material");
 var import_material12 = require("@mui/material");
-var import_react2 = require("react");
+var import_react3 = require("react");
 var import_react_router_dom = require("react-router-dom");
 var import_jsx_runtime12 = require("react/jsx-runtime");
-var TextFieldExternalLabel = (0, import_react2.forwardRef)(
+var TextFieldExternalLabel = (0, import_react3.forwardRef)(
   (_a, ref) => {
     var _b = _a, {
       containerProps,
@@ -563,7 +728,7 @@ var TextFieldExternalLabel = (0, import_react2.forwardRef)(
       "errorMessage"
     ]);
     const theme2 = (0, import_material12.useTheme)();
-    const [canSeeValue, setCanSeeValue] = (0, import_react2.useState)(label !== "Senha");
+    const [canSeeValue, setCanSeeValue] = (0, import_react3.useState)(label !== "Senha");
     const handleChangeCanSeeValue = () => {
       setCanSeeValue((prev) => !prev);
     };
@@ -628,7 +793,7 @@ var TextFieldExternalLabel = (0, import_react2.forwardRef)(
                     "aria-label": "Altere a visibilidade",
                     onClick: handleChangeCanSeeValue,
                     edge: "end",
-                    children: canSeeValue ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_icons_material.VisibilityOff, {}) : /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_icons_material.Visibility, {})
+                    children: canSeeValue ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_icons_material2.VisibilityOff, {}) : /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_icons_material2.Visibility, {})
                   }
                 ) })
               }
@@ -644,7 +809,7 @@ var TextFieldExternalLabel = (0, import_react2.forwardRef)(
               },
               children: [
                 /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-                  import_icons_material.ErrorOutline,
+                  import_icons_material2.ErrorOutline,
                   {
                     sx: {
                       width: 16,
@@ -674,9 +839,9 @@ TextFieldExternalLabel.displayName = "External Label";
 
 // src/components/TextField/Icon/index.tsx
 var import_material13 = require("@mui/material");
-var import_react3 = require("react");
+var import_react4 = require("react");
 var import_jsx_runtime13 = require("react/jsx-runtime");
-var TextFieldIcon = (0, import_react3.forwardRef)(
+var TextFieldIcon = (0, import_react4.forwardRef)(
   (_a, ref) => {
     var _b = _a, { icon } = _b, props = __objRest(_b, ["icon"]);
     var _a2;
@@ -705,11 +870,11 @@ var TextFieldIcon = (0, import_react3.forwardRef)(
 TextFieldIcon.displayName = "Icon";
 
 // src/components/TextField/InternalLabel/index.tsx
-var import_icons_material2 = require("@mui/icons-material");
+var import_icons_material3 = require("@mui/icons-material");
 var import_material14 = require("@mui/material");
-var import_react4 = require("react");
+var import_react5 = require("react");
 var import_jsx_runtime14 = require("react/jsx-runtime");
-var TextFieldInternalLabel = (0, import_react4.forwardRef)((_a, ref) => {
+var TextFieldInternalLabel = (0, import_react5.forwardRef)((_a, ref) => {
   var _b = _a, { errorMessage } = _b, props = __objRest(_b, ["errorMessage"]);
   const theme2 = (0, import_material14.useTheme)();
   return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
@@ -757,7 +922,7 @@ var TextFieldInternalLabel = (0, import_react4.forwardRef)((_a, ref) => {
             },
             children: [
               /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-                import_icons_material2.ErrorOutline,
+                import_icons_material3.ErrorOutline,
                 {
                   sx: {
                     width: 16,
