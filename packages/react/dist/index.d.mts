@@ -3,7 +3,7 @@ import * as _mui_material_OverridableComponent from '@mui/material/OverridableCo
 import * as _mui_material from '@mui/material';
 import { ButtonProps as ButtonProps$1, TextFieldProps as TextFieldProps$1 } from '@mui/material';
 import * as react from 'react';
-import react__default from 'react';
+import react__default, { ReactNode } from 'react';
 
 type IButtonOutlineGreyProps = {
     children?: React.ReactNode;
@@ -71,6 +71,15 @@ declare const ButtonSmall: {
 };
 type ButtonSmallProps = IButtonSmallDefaultProps;
 
+type NavLinkProps<T = any> = {
+    icon?: ReactNode;
+    label: string;
+    module?: T;
+    to: string;
+    variant?: "icon" | "standard";
+};
+declare const NavLink: ({ icon, label, to, variant, }: NavLinkProps) => react_jsx_runtime.JSX.Element;
+
 type MasksType = "cpf" | "cnpj" | "phone" | "date" | "cep" | "currency" | "code";
 
 type TextFieldDefaultProps = {
@@ -131,4 +140,4 @@ type TextFieldProps = TextFieldDefaultProps;
 
 declare const theme: _mui_material.Theme;
 
-export { Button, type ButtonProps, ButtonSmall, type ButtonSmallProps, TextField, type TextFieldProps, theme };
+export { Button, type ButtonProps, ButtonSmall, type ButtonSmallProps, NavLink, type NavLinkProps, TextField, type TextFieldProps, theme };

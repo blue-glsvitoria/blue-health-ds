@@ -1,10 +1,12 @@
 "use strict";
+var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __defProps = Object.defineProperties;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getOwnPropSymbols = Object.getOwnPropertySymbols;
+var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __propIsEnum = Object.prototype.propertyIsEnumerable;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
@@ -44,6 +46,14 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
 // src/index.tsx
@@ -51,6 +61,7 @@ var src_exports = {};
 __export(src_exports, {
   Button: () => Button,
   ButtonSmall: () => ButtonSmall,
+  NavLink: () => NavLink2,
   TextField: () => TextField,
   theme: () => theme
 });
@@ -393,8 +404,82 @@ var ButtonSmall = {
   OutlineGrey: ButtonSmallOutlineGrey
 };
 
-// src/components/TextField/Default/index.tsx
+// src/components/NavLink/index.tsx
 var import_material10 = require("@mui/material");
+var RouterDOM = __toESM(require("react-router-dom"));
+var import_jsx_runtime10 = require("react/jsx-runtime");
+var NavLink2 = ({
+  icon = "",
+  label = "",
+  to = "",
+  variant = "standard"
+}) => {
+  const theme2 = (0, import_material10.useTheme)();
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+    import_material10.Box,
+    {
+      sx: {
+        borderRadius: 1,
+        display: "flex",
+        flexDirection: "column",
+        overflow: "hidden",
+        userSelect: "none",
+        width: "100%"
+      },
+      children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+        RouterDOM.NavLink,
+        {
+          to,
+          style: { textDecoration: "none" },
+          draggable: false,
+          children: ({ isActive }) => {
+            console.log(isActive);
+            return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
+              import_material10.Box,
+              {
+                sx: {
+                  height: 24,
+                  width: "100%",
+                  px: space[2],
+                  display: "flex",
+                  alignItems: "center",
+                  gap: space[2],
+                  color: isActive ? theme2.palette.primary.main : theme2.palette.text.primary,
+                  fontWeight: isActive ? fontWeights.semibold : fontWeights.regular,
+                  transition: "all 0.1s ease-in-out",
+                  whiteSpace: "nowrap",
+                  ":hover": {
+                    color: theme2.palette.primary.main
+                  },
+                  "> *": {
+                    mr: variant === "icon" ? "auto" : 0
+                  }
+                },
+                children: [
+                  !!icon && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_material10.Box, { sx: { width: 24, height: 24 }, children: icon }),
+                  variant === "standard" && !!label && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+                    import_material10.Typography,
+                    {
+                      variant: "body2",
+                      sx: {
+                        fontSize: fontSizes.sm,
+                        fontWeight: "inherit"
+                      },
+                      children: label
+                    }
+                  )
+                ]
+              }
+            );
+          }
+        }
+      )
+    }
+  );
+};
+
+// src/components/TextField/Default/index.tsx
+var import_material11 = require("@mui/material");
 var import_react = require("react");
 
 // src/utils/masks.ts
@@ -420,12 +505,12 @@ var masks = ({ type, data }) => {
 };
 
 // src/components/TextField/Default/index.tsx
-var import_jsx_runtime10 = require("react/jsx-runtime");
+var import_jsx_runtime11 = require("react/jsx-runtime");
 var TextFieldDefault = (0, import_react.forwardRef)((_a, ref) => {
   var _b = _a, { mask } = _b, props = __objRest(_b, ["mask"]);
-  const theme2 = (0, import_material10.useTheme)();
-  return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-    import_material10.TextField,
+  const theme2 = (0, import_material11.useTheme)();
+  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+    import_material11.TextField,
     __spreadProps(__spreadValues({}, props), {
       ref,
       sx: __spreadValues({
@@ -458,10 +543,10 @@ TextFieldDefault.displayName = "Default";
 
 // src/components/TextField/ExternalLabel/index.tsx
 var import_icons_material = require("@mui/icons-material");
-var import_material11 = require("@mui/material");
+var import_material12 = require("@mui/material");
 var import_react2 = require("react");
 var import_react_router_dom = require("react-router-dom");
-var import_jsx_runtime11 = require("react/jsx-runtime");
+var import_jsx_runtime12 = require("react/jsx-runtime");
 var TextFieldExternalLabel = (0, import_react2.forwardRef)(
   (_a, ref) => {
     var _b = _a, {
@@ -477,20 +562,20 @@ var TextFieldExternalLabel = (0, import_react2.forwardRef)(
       "labelProps",
       "errorMessage"
     ]);
-    const theme2 = (0, import_material11.useTheme)();
+    const theme2 = (0, import_material12.useTheme)();
     const [canSeeValue, setCanSeeValue] = (0, import_react2.useState)(label !== "Senha");
     const handleChangeCanSeeValue = () => {
       setCanSeeValue((prev) => !prev);
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
-      import_material11.Stack,
+    return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+      import_material12.Stack,
       __spreadProps(__spreadValues({}, containerProps), {
         sx: {
           gap: 1
         },
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
-            import_material11.Stack,
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+            import_material12.Stack,
             {
               sx: {
                 flexDirection: "row",
@@ -498,8 +583,8 @@ var TextFieldExternalLabel = (0, import_react2.forwardRef)(
                 alignItems: "center"
               },
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
-                  import_material11.InputLabel,
+                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+                  import_material12.InputLabel,
                   __spreadProps(__spreadValues({}, labelProps), {
                     sx: {
                       fontSize: 16,
@@ -510,8 +595,8 @@ var TextFieldExternalLabel = (0, import_react2.forwardRef)(
                     children: label
                   })
                 ),
-                label === "Senha" && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
-                  import_material11.Box,
+                label === "Senha" && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+                  import_material12.Box,
                   {
                     component: import_react_router_dom.Link,
                     sx: {
@@ -524,7 +609,7 @@ var TextFieldExternalLabel = (0, import_react2.forwardRef)(
               ]
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
             TextField.Default,
             __spreadProps(__spreadValues({}, props), {
               ref,
@@ -537,20 +622,20 @@ var TextFieldExternalLabel = (0, import_react2.forwardRef)(
                 }
               }, props.sx),
               InputProps: {
-                endAdornment: visibilityChange && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_material11.InputAdornment, { position: "end", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
-                  import_material11.IconButton,
+                endAdornment: visibilityChange && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_material12.InputAdornment, { position: "end", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+                  import_material12.IconButton,
                   {
                     "aria-label": "Altere a visibilidade",
                     onClick: handleChangeCanSeeValue,
                     edge: "end",
-                    children: canSeeValue ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_icons_material.VisibilityOff, {}) : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_icons_material.Visibility, {})
+                    children: canSeeValue ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_icons_material.VisibilityOff, {}) : /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_icons_material.Visibility, {})
                   }
                 ) })
               }
             })
           ),
-          (props == null ? void 0 : props.error) && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
-            import_material11.Stack,
+          (props == null ? void 0 : props.error) && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+            import_material12.Stack,
             {
               sx: {
                 color: theme2.palette.error.main,
@@ -558,7 +643,7 @@ var TextFieldExternalLabel = (0, import_react2.forwardRef)(
                 gap: 1
               },
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
                   import_icons_material.ErrorOutline,
                   {
                     sx: {
@@ -567,8 +652,8 @@ var TextFieldExternalLabel = (0, import_react2.forwardRef)(
                     }
                   }
                 ),
-                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
-                  import_material11.Typography,
+                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+                  import_material12.Typography,
                   {
                     variant: "caption",
                     sx: {
@@ -588,15 +673,15 @@ var TextFieldExternalLabel = (0, import_react2.forwardRef)(
 TextFieldExternalLabel.displayName = "External Label";
 
 // src/components/TextField/Icon/index.tsx
-var import_material12 = require("@mui/material");
+var import_material13 = require("@mui/material");
 var import_react3 = require("react");
-var import_jsx_runtime12 = require("react/jsx-runtime");
+var import_jsx_runtime13 = require("react/jsx-runtime");
 var TextFieldIcon = (0, import_react3.forwardRef)(
   (_a, ref) => {
     var _b = _a, { icon } = _b, props = __objRest(_b, ["icon"]);
     var _a2;
-    const theme2 = (0, import_material12.useTheme)();
-    return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+    const theme2 = (0, import_material13.useTheme)();
+    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
       TextField.Default,
       __spreadProps(__spreadValues({}, props), {
         ref,
@@ -611,7 +696,7 @@ var TextFieldIcon = (0, import_react3.forwardRef)(
           sx: __spreadValues({
             height: 52
           }, (_a2 = props.InputProps) == null ? void 0 : _a2.sx),
-          startAdornment: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_material12.InputAdornment, { position: "start", children: icon })
+          startAdornment: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_material13.InputAdornment, { position: "start", children: icon })
         }, props.InputProps)
       })
     );
@@ -621,14 +706,14 @@ TextFieldIcon.displayName = "Icon";
 
 // src/components/TextField/InternalLabel/index.tsx
 var import_icons_material2 = require("@mui/icons-material");
-var import_material13 = require("@mui/material");
+var import_material14 = require("@mui/material");
 var import_react4 = require("react");
-var import_jsx_runtime13 = require("react/jsx-runtime");
+var import_jsx_runtime14 = require("react/jsx-runtime");
 var TextFieldInternalLabel = (0, import_react4.forwardRef)((_a, ref) => {
   var _b = _a, { errorMessage } = _b, props = __objRest(_b, ["errorMessage"]);
-  const theme2 = (0, import_material13.useTheme)();
-  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
-    import_material13.FormControl,
+  const theme2 = (0, import_material14.useTheme)();
+  return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
+    import_material14.FormControl,
     {
       fullWidth: true,
       sx: {
@@ -637,7 +722,7 @@ var TextFieldInternalLabel = (0, import_react4.forwardRef)((_a, ref) => {
         gap: 1
       },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
           TextField.Default,
           __spreadProps(__spreadValues({}, props), {
             ref,
@@ -662,8 +747,8 @@ var TextFieldInternalLabel = (0, import_react4.forwardRef)((_a, ref) => {
             }, props.InputProps)
           })
         ),
-        (props == null ? void 0 : props.error) && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
-          import_material13.Stack,
+        (props == null ? void 0 : props.error) && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
+          import_material14.Stack,
           {
             sx: {
               color: theme2.palette.error.main,
@@ -671,7 +756,7 @@ var TextFieldInternalLabel = (0, import_react4.forwardRef)((_a, ref) => {
               gap: 1
             },
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
                 import_icons_material2.ErrorOutline,
                 {
                   sx: {
@@ -680,8 +765,8 @@ var TextFieldInternalLabel = (0, import_react4.forwardRef)((_a, ref) => {
                   }
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-                import_material13.Typography,
+              /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+                import_material14.Typography,
                 {
                   variant: "caption",
                   sx: {
@@ -708,8 +793,8 @@ var TextField = {
 };
 
 // src/styles/theme.ts
-var import_material14 = require("@mui/material");
-var theme = (0, import_material14.createTheme)({
+var import_material15 = require("@mui/material");
+var theme = (0, import_material15.createTheme)({
   palette: {
     primary: {
       main: colors.primary,
@@ -764,6 +849,7 @@ var theme = (0, import_material14.createTheme)({
 0 && (module.exports = {
   Button,
   ButtonSmall,
+  NavLink,
   TextField,
   theme
 });
