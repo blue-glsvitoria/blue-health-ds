@@ -371,12 +371,56 @@ var ButtonSmall = {
   OutlineGrey: ButtonSmallOutlineGrey
 };
 
+// src/components/Logo/index.tsx
+import { Box } from "@mui/material";
+import { Link } from "react-router-dom";
+
+// src/assets/icon.svg
+var icon_default = "./icon-YVYQOXLC.svg";
+
+// src/assets/logo.svg
+var logo_default = "./logo-EOLDLCYN.svg";
+
+// src/components/Logo/index.tsx
+import { jsx as jsx10 } from "react/jsx-runtime";
+var Logo = ({ variant = "standard" }) => {
+  return /* @__PURE__ */ jsx10(Link, { to: "/", draggable: false, children: /* @__PURE__ */ jsx10(
+    Box,
+    {
+      sx: {
+        display: "flex",
+        justifyCOntent: "center",
+        alignItems: "center"
+      },
+      children: variant === "standard" ? /* @__PURE__ */ jsx10(
+        Box,
+        {
+          component: "img",
+          src: logo_default,
+          alt: "Logo da blue",
+          sx: { height: 38, width: 112 },
+          draggable: false
+        }
+      ) : /* @__PURE__ */ jsx10(
+        Box,
+        {
+          component: "img",
+          src: icon_default,
+          alt: "\xCDcone da blue",
+          sx: { height: 38, width: 33 },
+          draggable: false
+        }
+      )
+    }
+  ) });
+};
+
 // src/components/NavLink/index.tsx
 import { ChevronRight } from "@mui/icons-material";
-import { Box, Collapse, Typography, useTheme as useTheme8 } from "@mui/material";
+import { Box as Box2, Collapse, Typography, useTheme as useTheme8 } from "@mui/material";
 import { useEffect, useState } from "react";
 import * as RouterDOM from "react-router-dom";
-import { jsx as jsx10, jsxs } from "react/jsx-runtime";
+import { jsx as jsx11, jsxs } from "react/jsx-runtime";
 var NavLink2 = ({
   icon = "",
   label = "",
@@ -410,7 +454,7 @@ var NavLink2 = ({
   };
   if (items.length > 0) {
     return /* @__PURE__ */ jsxs(
-      Box,
+      Box2,
       {
         sx: {
           width: "100%",
@@ -420,7 +464,7 @@ var NavLink2 = ({
         },
         children: [
           /* @__PURE__ */ jsxs(
-            Box,
+            Box2,
             {
               onClick: variant === "icon" ? handleClickIcon : handleCollapse,
               sx: {
@@ -445,18 +489,18 @@ var NavLink2 = ({
                 }
               },
               children: [
-                !!icon && /* @__PURE__ */ jsx10(Box, { sx: { width: 24, height: 24 }, children: icon }),
+                !!icon && /* @__PURE__ */ jsx11(Box2, { sx: { width: 24, height: 24 }, children: icon }),
                 variant === "standard" && !!label && label,
-                /* @__PURE__ */ jsx10(
-                  Box,
+                /* @__PURE__ */ jsx11(
+                  Box2,
                   {
                     sx: {
                       display: variant === "icon" ? "none" : "flex",
                       justifyContent: "end",
                       width: "100%"
                     },
-                    children: /* @__PURE__ */ jsx10(
-                      Box,
+                    children: /* @__PURE__ */ jsx11(
+                      Box2,
                       {
                         sx: {
                           backgroundColor: isCollapsed ? theme2.palette.primary.main : "transparent",
@@ -468,7 +512,7 @@ var NavLink2 = ({
                           alignItems: "center",
                           transition: "all 0.1s ease-in-out"
                         },
-                        children: /* @__PURE__ */ jsx10(
+                        children: /* @__PURE__ */ jsx11(
                           ChevronRight,
                           {
                             fontSize: "small",
@@ -485,15 +529,15 @@ var NavLink2 = ({
               ]
             }
           ),
-          variant === "standard" && /* @__PURE__ */ jsx10(
+          variant === "standard" && /* @__PURE__ */ jsx11(
             Collapse,
             {
               in: isCollapsed,
               sx: {
                 userSelect: "none"
               },
-              children: /* @__PURE__ */ jsx10(
-                Box,
+              children: /* @__PURE__ */ jsx11(
+                Box2,
                 {
                   sx: {
                     display: "flex",
@@ -501,7 +545,7 @@ var NavLink2 = ({
                     gap: space[6],
                     marginTop: space[4]
                   },
-                  children: items == null ? void 0 : items.map((item, index) => /* @__PURE__ */ jsx10(
+                  children: items == null ? void 0 : items.map((item, index) => /* @__PURE__ */ jsx11(
                     RouterDOM.NavLink,
                     {
                       to: item == null ? void 0 : item.to,
@@ -509,7 +553,7 @@ var NavLink2 = ({
                       draggable: false,
                       children: ({ isActive }) => {
                         return /* @__PURE__ */ jsxs(
-                          Box,
+                          Box2,
                           {
                             sx: {
                               height: 24,
@@ -530,7 +574,7 @@ var NavLink2 = ({
                               }
                             },
                             children: [
-                              !!(item == null ? void 0 : item.icon) && /* @__PURE__ */ jsx10(Box, { sx: { height: 24, width: 24 }, children: item == null ? void 0 : item.icon }),
+                              !!(item == null ? void 0 : item.icon) && /* @__PURE__ */ jsx11(Box2, { sx: { height: 24, width: 24 }, children: item == null ? void 0 : item.icon }),
                               variant === "standard" && !!(item == null ? void 0 : item.label) && (item == null ? void 0 : item.label)
                             ]
                           }
@@ -547,8 +591,8 @@ var NavLink2 = ({
       }
     );
   }
-  return /* @__PURE__ */ jsx10(
-    Box,
+  return /* @__PURE__ */ jsx11(
+    Box2,
     {
       sx: {
         borderRadius: radii.md,
@@ -558,7 +602,7 @@ var NavLink2 = ({
         userSelect: "none",
         width: "100%"
       },
-      children: /* @__PURE__ */ jsx10(
+      children: /* @__PURE__ */ jsx11(
         RouterDOM.NavLink,
         {
           to,
@@ -567,7 +611,7 @@ var NavLink2 = ({
           children: ({ isActive }) => {
             console.log(isActive);
             return /* @__PURE__ */ jsxs(
-              Box,
+              Box2,
               {
                 sx: {
                   height: 24,
@@ -588,8 +632,8 @@ var NavLink2 = ({
                   }
                 },
                 children: [
-                  !!icon && /* @__PURE__ */ jsx10(Box, { sx: { width: 24, height: 24 }, children: icon }),
-                  variant === "standard" && !!label && /* @__PURE__ */ jsx10(
+                  !!icon && /* @__PURE__ */ jsx11(Box2, { sx: { width: 24, height: 24 }, children: icon }),
+                  variant === "standard" && !!label && /* @__PURE__ */ jsx11(
                     Typography,
                     {
                       variant: "body2",
@@ -640,11 +684,11 @@ var masks = ({ type, data }) => {
 };
 
 // src/components/TextField/Default/index.tsx
-import { jsx as jsx11 } from "react/jsx-runtime";
+import { jsx as jsx12 } from "react/jsx-runtime";
 var TextFieldDefault = forwardRef((_a, ref) => {
   var _b = _a, { mask } = _b, props = __objRest(_b, ["mask"]);
   const theme2 = useTheme9();
-  return /* @__PURE__ */ jsx11(
+  return /* @__PURE__ */ jsx12(
     TextFieldMUI,
     __spreadProps(__spreadValues({}, props), {
       ref,
@@ -679,7 +723,7 @@ TextFieldDefault.displayName = "Default";
 // src/components/TextField/ExternalLabel/index.tsx
 import { ErrorOutline, Visibility, VisibilityOff } from "@mui/icons-material";
 import {
-  Box as Box2,
+  Box as Box3,
   IconButton,
   InputAdornment,
   InputLabel,
@@ -688,8 +732,8 @@ import {
   useTheme as useTheme10
 } from "@mui/material";
 import { forwardRef as forwardRef2, useState as useState2 } from "react";
-import { Link } from "react-router-dom";
-import { jsx as jsx12, jsxs as jsxs2 } from "react/jsx-runtime";
+import { Link as Link2 } from "react-router-dom";
+import { jsx as jsx13, jsxs as jsxs2 } from "react/jsx-runtime";
 var TextFieldExternalLabel = forwardRef2(
   (_a, ref) => {
     var _b = _a, {
@@ -726,7 +770,7 @@ var TextFieldExternalLabel = forwardRef2(
                 alignItems: "center"
               },
               children: [
-                /* @__PURE__ */ jsx12(
+                /* @__PURE__ */ jsx13(
                   InputLabel,
                   __spreadProps(__spreadValues({}, labelProps), {
                     sx: {
@@ -738,10 +782,10 @@ var TextFieldExternalLabel = forwardRef2(
                     children: label
                   })
                 ),
-                label === "Senha" && /* @__PURE__ */ jsx12(
-                  Box2,
+                label === "Senha" && /* @__PURE__ */ jsx13(
+                  Box3,
                   {
-                    component: Link,
+                    component: Link2,
                     sx: {
                       color: "#000"
                     },
@@ -752,7 +796,7 @@ var TextFieldExternalLabel = forwardRef2(
               ]
             }
           ),
-          /* @__PURE__ */ jsx12(
+          /* @__PURE__ */ jsx13(
             TextField.Default,
             __spreadProps(__spreadValues({}, props), {
               ref,
@@ -765,13 +809,13 @@ var TextFieldExternalLabel = forwardRef2(
                 }
               }, props.sx),
               InputProps: {
-                endAdornment: visibilityChange && /* @__PURE__ */ jsx12(InputAdornment, { position: "end", children: /* @__PURE__ */ jsx12(
+                endAdornment: visibilityChange && /* @__PURE__ */ jsx13(InputAdornment, { position: "end", children: /* @__PURE__ */ jsx13(
                   IconButton,
                   {
                     "aria-label": "Altere a visibilidade",
                     onClick: handleChangeCanSeeValue,
                     edge: "end",
-                    children: canSeeValue ? /* @__PURE__ */ jsx12(VisibilityOff, {}) : /* @__PURE__ */ jsx12(Visibility, {})
+                    children: canSeeValue ? /* @__PURE__ */ jsx13(VisibilityOff, {}) : /* @__PURE__ */ jsx13(Visibility, {})
                   }
                 ) })
               }
@@ -786,7 +830,7 @@ var TextFieldExternalLabel = forwardRef2(
                 gap: 1
               },
               children: [
-                /* @__PURE__ */ jsx12(
+                /* @__PURE__ */ jsx13(
                   ErrorOutline,
                   {
                     sx: {
@@ -795,7 +839,7 @@ var TextFieldExternalLabel = forwardRef2(
                     }
                   }
                 ),
-                /* @__PURE__ */ jsx12(
+                /* @__PURE__ */ jsx13(
                   Typography2,
                   {
                     variant: "caption",
@@ -818,13 +862,13 @@ TextFieldExternalLabel.displayName = "External Label";
 // src/components/TextField/Icon/index.tsx
 import { InputAdornment as InputAdornment2, useTheme as useTheme11 } from "@mui/material";
 import { forwardRef as forwardRef3 } from "react";
-import { jsx as jsx13 } from "react/jsx-runtime";
+import { jsx as jsx14 } from "react/jsx-runtime";
 var TextFieldIcon = forwardRef3(
   (_a, ref) => {
     var _b = _a, { icon } = _b, props = __objRest(_b, ["icon"]);
     var _a2;
     const theme2 = useTheme11();
-    return /* @__PURE__ */ jsx13(
+    return /* @__PURE__ */ jsx14(
       TextField.Default,
       __spreadProps(__spreadValues({}, props), {
         ref,
@@ -839,7 +883,7 @@ var TextFieldIcon = forwardRef3(
           sx: __spreadValues({
             height: 52
           }, (_a2 = props.InputProps) == null ? void 0 : _a2.sx),
-          startAdornment: /* @__PURE__ */ jsx13(InputAdornment2, { position: "start", children: icon })
+          startAdornment: /* @__PURE__ */ jsx14(InputAdornment2, { position: "start", children: icon })
         }, props.InputProps)
       })
     );
@@ -851,7 +895,7 @@ TextFieldIcon.displayName = "Icon";
 import { ErrorOutline as ErrorOutline2 } from "@mui/icons-material";
 import { FormControl, Stack as Stack2, Typography as Typography3, useTheme as useTheme12 } from "@mui/material";
 import { forwardRef as forwardRef4 } from "react";
-import { jsx as jsx14, jsxs as jsxs3 } from "react/jsx-runtime";
+import { jsx as jsx15, jsxs as jsxs3 } from "react/jsx-runtime";
 var TextFieldInternalLabel = forwardRef4((_a, ref) => {
   var _b = _a, { errorMessage } = _b, props = __objRest(_b, ["errorMessage"]);
   const theme2 = useTheme12();
@@ -865,7 +909,7 @@ var TextFieldInternalLabel = forwardRef4((_a, ref) => {
         gap: 1
       },
       children: [
-        /* @__PURE__ */ jsx14(
+        /* @__PURE__ */ jsx15(
           TextField.Default,
           __spreadProps(__spreadValues({}, props), {
             ref,
@@ -899,7 +943,7 @@ var TextFieldInternalLabel = forwardRef4((_a, ref) => {
               gap: 1
             },
             children: [
-              /* @__PURE__ */ jsx14(
+              /* @__PURE__ */ jsx15(
                 ErrorOutline2,
                 {
                   sx: {
@@ -908,7 +952,7 @@ var TextFieldInternalLabel = forwardRef4((_a, ref) => {
                   }
                 }
               ),
-              /* @__PURE__ */ jsx14(
+              /* @__PURE__ */ jsx15(
                 Typography3,
                 {
                   variant: "caption",
@@ -991,6 +1035,7 @@ var theme = createTheme({
 export {
   Button,
   ButtonSmall,
+  Logo,
   NavLink2 as NavLink,
   TextField,
   theme

@@ -71,6 +71,11 @@ declare const ButtonSmall: {
 };
 type ButtonSmallProps = IButtonSmallDefaultProps;
 
+type LogoProps = {
+    variant?: "icon" | "standard";
+};
+declare const Logo: ({ variant }: LogoProps) => react_jsx_runtime.JSX.Element;
+
 type CollapseNavLinkItem<T = any> = {
     icon?: ReactNode;
     label: string;
@@ -148,4 +153,4 @@ type TextFieldProps = TextFieldDefaultProps;
 
 declare const theme: _mui_material.Theme;
 
-export { Button, type ButtonProps, ButtonSmall, type ButtonSmallProps, NavLink, type NavLinkProps, TextField, type TextFieldProps, theme };
+export { Button, type ButtonProps, ButtonSmall, type ButtonSmallProps, Logo, type LogoProps, NavLink, type NavLinkProps, TextField, type TextFieldProps, theme };
