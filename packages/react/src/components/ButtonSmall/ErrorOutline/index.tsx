@@ -20,7 +20,7 @@ export const ButtonSmallErrorOutline = ({
         borderColor: theme.palette.error.main,
         color: theme.palette.error.main,
         "&:hover": {
-          backgroundColor: theme.palette.error.dark,
+          backgroundColor: theme.palette.error.main,
           color: theme.palette.common.white,
         },
         ":disabled": {

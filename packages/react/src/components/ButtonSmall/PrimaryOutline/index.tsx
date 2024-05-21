@@ -20,7 +20,7 @@ export const ButtonSmallPrimaryOutline = ({
         borderColor: theme.palette.primary.main,
         color: theme.palette.primary.main,
         ":hover": {
-          backgroundColor: theme.palette.primary.dark,
+          backgroundColor: theme.palette.primary.main,
           color: theme.palette.common.white,
         },
         ":disabled": {

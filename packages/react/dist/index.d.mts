@@ -1,7 +1,7 @@
 import * as react_jsx_runtime from 'react/jsx-runtime';
 import * as _mui_material_OverridableComponent from '@mui/material/OverridableComponent';
 import * as _mui_material from '@mui/material';
-import { ButtonProps as ButtonProps$1, IconButtonProps as IconButtonProps$1, StackProps, TextFieldProps as TextFieldProps$1 } from '@mui/material';
+import { ButtonProps as ButtonProps$1, IconButtonProps as IconButtonProps$1, AvatarProps, StackProps, TextFieldProps as TextFieldProps$1 } from '@mui/material';
 import * as react from 'react';
 import react__default, { ReactNode } from 'react';
 
@@ -113,6 +113,11 @@ type NavLinkProps<T = any> = {
 };
 declare const NavLink: ({ icon, label, to, subItens: items, variant, onClick, }: NavLinkProps) => react_jsx_runtime.JSX.Element;
 
+type ProfilePhotoProps = {
+    src: string;
+} & AvatarProps;
+declare const ProfilePhoto: ({ src, ...props }: ProfilePhotoProps) => react_jsx_runtime.JSX.Element;
+
 type FooterProps = {
     text: string;
     shrunkenText: string;
@@ -219,4 +224,4 @@ type TextFieldProps = TextFieldDefaultProps;
 
 declare const theme: _mui_material.Theme;
 
-export { Button, type ButtonProps, ButtonSmall, type ButtonSmallProps, IconButton, type IconButtonProps, Logo, type LogoProps, NavLink, type NavLinkProps, Sidebar, type SidebarProps, TagStatus, type TagStatusProps, TextField, type TextFieldProps, theme };
+export { Button, type ButtonProps, ButtonSmall, type ButtonSmallProps, IconButton, type IconButtonProps, Logo, type LogoProps, NavLink, type NavLinkProps, ProfilePhoto, type ProfilePhotoProps, Sidebar, type SidebarProps, TagStatus, type TagStatusProps, TextField, type TextFieldProps, theme };
