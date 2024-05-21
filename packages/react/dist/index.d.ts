@@ -1,7 +1,7 @@
 import * as react_jsx_runtime from 'react/jsx-runtime';
 import * as _mui_material_OverridableComponent from '@mui/material/OverridableComponent';
 import * as _mui_material from '@mui/material';
-import { ButtonProps as ButtonProps$1, TextFieldProps as TextFieldProps$1 } from '@mui/material';
+import { ButtonProps as ButtonProps$1, IconButtonProps as IconButtonProps$1, TextFieldProps as TextFieldProps$1 } from '@mui/material';
 import * as react from 'react';
 import react__default, { ReactNode } from 'react';
 
@@ -70,6 +70,12 @@ declare const ButtonSmall: {
     }) => react_jsx_runtime.JSX.Element;
 };
 type ButtonSmallProps = IButtonSmallDefaultProps;
+
+type IconButtonProps = {
+    icon: React.ReactNode;
+    active?: boolean;
+} & IconButtonProps$1;
+declare const IconButton: ({ icon, active, ...props }: IconButtonProps) => react_jsx_runtime.JSX.Element;
 
 type LogoProps = {
     variant?: "icon" | "standard";
@@ -153,4 +159,4 @@ type TextFieldProps = TextFieldDefaultProps;
 
 declare const theme: _mui_material.Theme;
 
-export { Button, type ButtonProps, ButtonSmall, type ButtonSmallProps, Logo, type LogoProps, NavLink, type NavLinkProps, TextField, type TextFieldProps, theme };
+export { Button, type ButtonProps, ButtonSmall, type ButtonSmallProps, IconButton, type IconButtonProps, Logo, type LogoProps, NavLink, type NavLinkProps, TextField, type TextFieldProps, theme };

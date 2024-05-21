@@ -371,6 +371,46 @@ var ButtonSmall = {
   OutlineGrey: ButtonSmallOutlineGrey
 };
 
+// src/components/IconButton/index.tsx
+import {
+  IconButton as IconButtonMUI,
+  useTheme as useTheme8
+} from "@mui/material";
+import { jsx as jsx10 } from "react/jsx-runtime";
+var IconButton = (_a) => {
+  var _b = _a, {
+    icon,
+    active = false
+  } = _b, props = __objRest(_b, [
+    "icon",
+    "active"
+  ]);
+  const theme2 = useTheme8();
+  return /* @__PURE__ */ jsx10(
+    IconButtonMUI,
+    __spreadProps(__spreadValues({}, props), {
+      sx: {
+        width: 32,
+        height: 32,
+        borderRadius: radii.sm,
+        borderStyle: "solid",
+        borderWidth: 1,
+        borderColor: "#E8EDFF",
+        background: active ? theme2.palette.primary.main : theme2.palette.common.white,
+        color: active ? theme2.palette.common.white : "#94ADFF",
+        p: space[1],
+        transition: "all 0.3s",
+        ":hover": {
+          background: theme2.palette.common.white,
+          borderColor: theme2.palette.primary.main,
+          color: theme2.palette.primary.main
+        }
+      },
+      children: icon
+    })
+  );
+};
+
 // src/components/Logo/index.tsx
 import { Box } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -382,9 +422,9 @@ var icon_default = "./icon-YVYQOXLC.svg";
 var logo_default = "./logo-EOLDLCYN.svg";
 
 // src/components/Logo/index.tsx
-import { jsx as jsx10 } from "react/jsx-runtime";
+import { jsx as jsx11 } from "react/jsx-runtime";
 var Logo = ({ variant = "standard" }) => {
-  return /* @__PURE__ */ jsx10(Link, { to: "/", draggable: false, children: /* @__PURE__ */ jsx10(
+  return /* @__PURE__ */ jsx11(Link, { to: "/", draggable: false, children: /* @__PURE__ */ jsx11(
     Box,
     {
       sx: {
@@ -392,7 +432,7 @@ var Logo = ({ variant = "standard" }) => {
         justifyCOntent: "center",
         alignItems: "center"
       },
-      children: variant === "standard" ? /* @__PURE__ */ jsx10(
+      children: variant === "standard" ? /* @__PURE__ */ jsx11(
         Box,
         {
           component: "img",
@@ -401,7 +441,7 @@ var Logo = ({ variant = "standard" }) => {
           sx: { height: 38, width: 112 },
           draggable: false
         }
-      ) : /* @__PURE__ */ jsx10(
+      ) : /* @__PURE__ */ jsx11(
         Box,
         {
           component: "img",
@@ -417,10 +457,10 @@ var Logo = ({ variant = "standard" }) => {
 
 // src/components/NavLink/index.tsx
 import { ChevronRight } from "@mui/icons-material";
-import { Box as Box2, Collapse, Typography, useTheme as useTheme8 } from "@mui/material";
+import { Box as Box2, Collapse, Typography, useTheme as useTheme9 } from "@mui/material";
 import { useEffect, useState } from "react";
 import * as RouterDOM from "react-router-dom";
-import { jsx as jsx11, jsxs } from "react/jsx-runtime";
+import { jsx as jsx12, jsxs } from "react/jsx-runtime";
 var NavLink2 = ({
   icon = "",
   label = "",
@@ -429,7 +469,7 @@ var NavLink2 = ({
   variant = "standard",
   onClick
 }) => {
-  const theme2 = useTheme8();
+  const theme2 = useTheme9();
   const [isCollapsed, setIsCollapsed] = useState(false);
   const location = RouterDOM.useLocation();
   useEffect(() => {
@@ -489,9 +529,9 @@ var NavLink2 = ({
                 }
               },
               children: [
-                !!icon && /* @__PURE__ */ jsx11(Box2, { sx: { width: 24, height: 24 }, children: icon }),
+                !!icon && /* @__PURE__ */ jsx12(Box2, { sx: { width: 24, height: 24 }, children: icon }),
                 variant === "standard" && !!label && label,
-                /* @__PURE__ */ jsx11(
+                /* @__PURE__ */ jsx12(
                   Box2,
                   {
                     sx: {
@@ -499,7 +539,7 @@ var NavLink2 = ({
                       justifyContent: "end",
                       width: "100%"
                     },
-                    children: /* @__PURE__ */ jsx11(
+                    children: /* @__PURE__ */ jsx12(
                       Box2,
                       {
                         sx: {
@@ -512,7 +552,7 @@ var NavLink2 = ({
                           alignItems: "center",
                           transition: "all 0.1s ease-in-out"
                         },
-                        children: /* @__PURE__ */ jsx11(
+                        children: /* @__PURE__ */ jsx12(
                           ChevronRight,
                           {
                             fontSize: "small",
@@ -529,14 +569,14 @@ var NavLink2 = ({
               ]
             }
           ),
-          variant === "standard" && /* @__PURE__ */ jsx11(
+          variant === "standard" && /* @__PURE__ */ jsx12(
             Collapse,
             {
               in: isCollapsed,
               sx: {
                 userSelect: "none"
               },
-              children: /* @__PURE__ */ jsx11(
+              children: /* @__PURE__ */ jsx12(
                 Box2,
                 {
                   sx: {
@@ -545,7 +585,7 @@ var NavLink2 = ({
                     gap: space[6],
                     marginTop: space[4]
                   },
-                  children: items == null ? void 0 : items.map((item, index) => /* @__PURE__ */ jsx11(
+                  children: items == null ? void 0 : items.map((item, index) => /* @__PURE__ */ jsx12(
                     RouterDOM.NavLink,
                     {
                       to: item == null ? void 0 : item.to,
@@ -574,7 +614,7 @@ var NavLink2 = ({
                               }
                             },
                             children: [
-                              !!(item == null ? void 0 : item.icon) && /* @__PURE__ */ jsx11(Box2, { sx: { height: 24, width: 24 }, children: item == null ? void 0 : item.icon }),
+                              !!(item == null ? void 0 : item.icon) && /* @__PURE__ */ jsx12(Box2, { sx: { height: 24, width: 24 }, children: item == null ? void 0 : item.icon }),
                               variant === "standard" && !!(item == null ? void 0 : item.label) && (item == null ? void 0 : item.label)
                             ]
                           }
@@ -591,7 +631,7 @@ var NavLink2 = ({
       }
     );
   }
-  return /* @__PURE__ */ jsx11(
+  return /* @__PURE__ */ jsx12(
     Box2,
     {
       sx: {
@@ -602,7 +642,7 @@ var NavLink2 = ({
         userSelect: "none",
         width: "100%"
       },
-      children: /* @__PURE__ */ jsx11(
+      children: /* @__PURE__ */ jsx12(
         RouterDOM.NavLink,
         {
           to,
@@ -632,8 +672,8 @@ var NavLink2 = ({
                   }
                 },
                 children: [
-                  !!icon && /* @__PURE__ */ jsx11(Box2, { sx: { width: 24, height: 24 }, children: icon }),
-                  variant === "standard" && !!label && /* @__PURE__ */ jsx11(
+                  !!icon && /* @__PURE__ */ jsx12(Box2, { sx: { width: 24, height: 24 }, children: icon }),
+                  variant === "standard" && !!label && /* @__PURE__ */ jsx12(
                     Typography,
                     {
                       variant: "body2",
@@ -657,7 +697,7 @@ var NavLink2 = ({
 // src/components/TextField/Default/index.tsx
 import {
   TextField as TextFieldMUI,
-  useTheme as useTheme9
+  useTheme as useTheme10
 } from "@mui/material";
 import { forwardRef } from "react";
 
@@ -684,11 +724,11 @@ var masks = ({ type, data }) => {
 };
 
 // src/components/TextField/Default/index.tsx
-import { jsx as jsx12 } from "react/jsx-runtime";
+import { jsx as jsx13 } from "react/jsx-runtime";
 var TextFieldDefault = forwardRef((_a, ref) => {
   var _b = _a, { mask } = _b, props = __objRest(_b, ["mask"]);
-  const theme2 = useTheme9();
-  return /* @__PURE__ */ jsx12(
+  const theme2 = useTheme10();
+  return /* @__PURE__ */ jsx13(
     TextFieldMUI,
     __spreadProps(__spreadValues({}, props), {
       ref,
@@ -724,16 +764,16 @@ TextFieldDefault.displayName = "Default";
 import { ErrorOutline, Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Box as Box3,
-  IconButton,
+  IconButton as IconButton2,
   InputAdornment,
   InputLabel,
   Stack,
   Typography as Typography2,
-  useTheme as useTheme10
+  useTheme as useTheme11
 } from "@mui/material";
 import { forwardRef as forwardRef2, useState as useState2 } from "react";
 import { Link as Link2 } from "react-router-dom";
-import { jsx as jsx13, jsxs as jsxs2 } from "react/jsx-runtime";
+import { jsx as jsx14, jsxs as jsxs2 } from "react/jsx-runtime";
 var TextFieldExternalLabel = forwardRef2(
   (_a, ref) => {
     var _b = _a, {
@@ -749,7 +789,7 @@ var TextFieldExternalLabel = forwardRef2(
       "labelProps",
       "errorMessage"
     ]);
-    const theme2 = useTheme10();
+    const theme2 = useTheme11();
     const [canSeeValue, setCanSeeValue] = useState2(label !== "Senha");
     const handleChangeCanSeeValue = () => {
       setCanSeeValue((prev) => !prev);
@@ -770,7 +810,7 @@ var TextFieldExternalLabel = forwardRef2(
                 alignItems: "center"
               },
               children: [
-                /* @__PURE__ */ jsx13(
+                /* @__PURE__ */ jsx14(
                   InputLabel,
                   __spreadProps(__spreadValues({}, labelProps), {
                     sx: {
@@ -782,7 +822,7 @@ var TextFieldExternalLabel = forwardRef2(
                     children: label
                   })
                 ),
-                label === "Senha" && /* @__PURE__ */ jsx13(
+                label === "Senha" && /* @__PURE__ */ jsx14(
                   Box3,
                   {
                     component: Link2,
@@ -796,7 +836,7 @@ var TextFieldExternalLabel = forwardRef2(
               ]
             }
           ),
-          /* @__PURE__ */ jsx13(
+          /* @__PURE__ */ jsx14(
             TextField.Default,
             __spreadProps(__spreadValues({}, props), {
               ref,
@@ -809,13 +849,13 @@ var TextFieldExternalLabel = forwardRef2(
                 }
               }, props.sx),
               InputProps: {
-                endAdornment: visibilityChange && /* @__PURE__ */ jsx13(InputAdornment, { position: "end", children: /* @__PURE__ */ jsx13(
-                  IconButton,
+                endAdornment: visibilityChange && /* @__PURE__ */ jsx14(InputAdornment, { position: "end", children: /* @__PURE__ */ jsx14(
+                  IconButton2,
                   {
                     "aria-label": "Altere a visibilidade",
                     onClick: handleChangeCanSeeValue,
                     edge: "end",
-                    children: canSeeValue ? /* @__PURE__ */ jsx13(VisibilityOff, {}) : /* @__PURE__ */ jsx13(Visibility, {})
+                    children: canSeeValue ? /* @__PURE__ */ jsx14(VisibilityOff, {}) : /* @__PURE__ */ jsx14(Visibility, {})
                   }
                 ) })
               }
@@ -830,7 +870,7 @@ var TextFieldExternalLabel = forwardRef2(
                 gap: 1
               },
               children: [
-                /* @__PURE__ */ jsx13(
+                /* @__PURE__ */ jsx14(
                   ErrorOutline,
                   {
                     sx: {
@@ -839,7 +879,7 @@ var TextFieldExternalLabel = forwardRef2(
                     }
                   }
                 ),
-                /* @__PURE__ */ jsx13(
+                /* @__PURE__ */ jsx14(
                   Typography2,
                   {
                     variant: "caption",
@@ -860,15 +900,15 @@ var TextFieldExternalLabel = forwardRef2(
 TextFieldExternalLabel.displayName = "External Label";
 
 // src/components/TextField/Icon/index.tsx
-import { InputAdornment as InputAdornment2, useTheme as useTheme11 } from "@mui/material";
+import { InputAdornment as InputAdornment2, useTheme as useTheme12 } from "@mui/material";
 import { forwardRef as forwardRef3 } from "react";
-import { jsx as jsx14 } from "react/jsx-runtime";
+import { jsx as jsx15 } from "react/jsx-runtime";
 var TextFieldIcon = forwardRef3(
   (_a, ref) => {
     var _b = _a, { icon } = _b, props = __objRest(_b, ["icon"]);
     var _a2;
-    const theme2 = useTheme11();
-    return /* @__PURE__ */ jsx14(
+    const theme2 = useTheme12();
+    return /* @__PURE__ */ jsx15(
       TextField.Default,
       __spreadProps(__spreadValues({}, props), {
         ref,
@@ -883,7 +923,7 @@ var TextFieldIcon = forwardRef3(
           sx: __spreadValues({
             height: 52
           }, (_a2 = props.InputProps) == null ? void 0 : _a2.sx),
-          startAdornment: /* @__PURE__ */ jsx14(InputAdornment2, { position: "start", children: icon })
+          startAdornment: /* @__PURE__ */ jsx15(InputAdornment2, { position: "start", children: icon })
         }, props.InputProps)
       })
     );
@@ -893,12 +933,12 @@ TextFieldIcon.displayName = "Icon";
 
 // src/components/TextField/InternalLabel/index.tsx
 import { ErrorOutline as ErrorOutline2 } from "@mui/icons-material";
-import { FormControl, Stack as Stack2, Typography as Typography3, useTheme as useTheme12 } from "@mui/material";
+import { FormControl, Stack as Stack2, Typography as Typography3, useTheme as useTheme13 } from "@mui/material";
 import { forwardRef as forwardRef4 } from "react";
-import { jsx as jsx15, jsxs as jsxs3 } from "react/jsx-runtime";
+import { jsx as jsx16, jsxs as jsxs3 } from "react/jsx-runtime";
 var TextFieldInternalLabel = forwardRef4((_a, ref) => {
   var _b = _a, { errorMessage } = _b, props = __objRest(_b, ["errorMessage"]);
-  const theme2 = useTheme12();
+  const theme2 = useTheme13();
   return /* @__PURE__ */ jsxs3(
     FormControl,
     {
@@ -909,7 +949,7 @@ var TextFieldInternalLabel = forwardRef4((_a, ref) => {
         gap: 1
       },
       children: [
-        /* @__PURE__ */ jsx15(
+        /* @__PURE__ */ jsx16(
           TextField.Default,
           __spreadProps(__spreadValues({}, props), {
             ref,
@@ -943,7 +983,7 @@ var TextFieldInternalLabel = forwardRef4((_a, ref) => {
               gap: 1
             },
             children: [
-              /* @__PURE__ */ jsx15(
+              /* @__PURE__ */ jsx16(
                 ErrorOutline2,
                 {
                   sx: {
@@ -952,7 +992,7 @@ var TextFieldInternalLabel = forwardRef4((_a, ref) => {
                   }
                 }
               ),
-              /* @__PURE__ */ jsx15(
+              /* @__PURE__ */ jsx16(
                 Typography3,
                 {
                   variant: "caption",
@@ -1035,6 +1075,7 @@ var theme = createTheme({
 export {
   Button,
   ButtonSmall,
+  IconButton,
   Logo,
   NavLink2 as NavLink,
   TextField,
