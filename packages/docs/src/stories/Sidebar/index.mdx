@@ -1,0 +1,23 @@
+import { Meta, Controls, Primary, Canvas } from '@storybook/blocks'
+
+import * as Story from './index.stories'
+
+<Meta of={Story} />
+
+# Sidebar
+
+Essas são as variações do componente Sidebar na Blue Health.
+
+Deve ser utilizado o seu Sidebar.Provider para que o mesmo funcione corretamente.
+
+### Default
+
+<Canvas of={Story.Default} />
+
+### With Navigation
+
+<Canvas of={Story.WithNavigation} />
+
+### With Navigation Collapse
+
+<Canvas of={Story.WithNavigationCollapse} />

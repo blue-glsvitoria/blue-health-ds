@@ -93,11 +93,51 @@ type NavLinkProps<T = any> = {
     label: string;
     module?: T;
     onClick?: () => void;
-    to: string;
-    subItens: CollapseNavLinkItem<T>[];
+    to?: string;
+    subItens?: CollapseNavLinkItem<T>[];
     variant?: "icon" | "standard";
 };
 declare const NavLink: ({ icon, label, to, subItens: items, variant, onClick, }: NavLinkProps) => react_jsx_runtime.JSX.Element;
+
+type FooterProps = {
+    text: string;
+    shrunkenText: string;
+};
+
+type Link<T = any> = Partial<NavLinkProps<T>>;
+type ContainerProps<T = any> = {
+    navigation: Link<T>[];
+};
+
+declare const Sidebar: {
+    Root: ({ children }: {
+        children: react.ReactNode;
+    }) => react_jsx_runtime.JSX.Element;
+    Page: ({ children }: {
+        children: react.ReactNode;
+    }) => react_jsx_runtime.JSX.Element;
+    Header: ({ logo, shrunkenLogo }: {
+        logo: react.ReactNode;
+        shrunkenLogo: react.ReactNode;
+    }) => react_jsx_runtime.JSX.Element;
+    Footer: ({ shrunkenText, text }: FooterProps) => react_jsx_runtime.JSX.Element;
+    Content: {
+        Wrapper: ({ children }: {
+            children: react.ReactNode;
+        }) => react_jsx_runtime.JSX.Element;
+        Title: ({ children }: {
+            children: react.ReactNode;
+        }) => react_jsx_runtime.JSX.Element;
+        Items: ({ children }: {
+            children: react.ReactNode;
+        }) => react_jsx_runtime.JSX.Element;
+    };
+    Container: <T>({ navigation }: ContainerProps<any>) => react_jsx_runtime.JSX.Element;
+    Provider: ({ children }: {
+        children: react.ReactNode;
+    }) => react_jsx_runtime.JSX.Element;
+};
+type SidebarProps = ContainerProps;
 
 type MasksType = "cpf" | "cnpj" | "phone" | "date" | "cep" | "currency" | "code";
 
@@ -159,4 +199,4 @@ type TextFieldProps = TextFieldDefaultProps;
 
 declare const theme: _mui_material.Theme;
 
-export { Button, type ButtonProps, ButtonSmall, type ButtonSmallProps, IconButton, type IconButtonProps, Logo, type LogoProps, NavLink, type NavLinkProps, TextField, type TextFieldProps, theme };
+export { Button, type ButtonProps, ButtonSmall, type ButtonSmallProps, IconButton, type IconButtonProps, Logo, type LogoProps, NavLink, type NavLinkProps, Sidebar, type SidebarProps, TextField, type TextFieldProps, theme };

@@ -16,8 +16,8 @@ export type NavLinkProps<T = any> = {
   label: string;
   module?: T;
   onClick?: () => void;
-  to: string;
-  subItens: CollapseNavLinkItem<T>[];
+  to?: string;
+  subItens?: CollapseNavLinkItem<T>[];
   variant?: "icon" | "standard";
 };
 
