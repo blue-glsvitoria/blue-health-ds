@@ -1,5 +1,11 @@
 # @blue-health/react
 
+## 3.6.0
+
+### Minor Changes
+
+- Create Profile Photo Component
+
 ## 3.5.1
 
 ### Patch Changes
