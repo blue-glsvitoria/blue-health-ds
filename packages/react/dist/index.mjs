@@ -782,24 +782,178 @@ var ProfilePhoto = (_a) => {
   );
 };
 
+// src/components/ProgressBar/Item/index.tsx
+import { TaskAlt } from "@mui/icons-material";
+import {
+  Stack,
+  Typography as Typography2,
+  useTheme as useTheme12
+} from "@mui/material";
+import { jsx as jsx16, jsxs as jsxs2 } from "react/jsx-runtime";
+var ProgressBarItem = (_a) => {
+  var _b = _a, {
+    variant,
+    label,
+    step
+  } = _b, props = __objRest(_b, [
+    "variant",
+    "label",
+    "step"
+  ]);
+  const theme2 = useTheme12();
+  let sxStyles = {};
+  switch (variant) {
+    case "waiting":
+      sxStyles = {
+        borderColor: "#94ADFF",
+        backgroundColor: "#E8EDFF"
+      };
+      break;
+    case "active":
+      sxStyles = {
+        borderColor: theme2.palette.primary.main,
+        backgroundColor: theme2.palette.primary.main,
+        color: theme2.palette.common.white
+      };
+      break;
+    case "completed":
+      sxStyles = {
+        borderColor: theme2.palette.primary.main,
+        backgroundColor: theme2.palette.primary.main,
+        color: theme2.palette.common.white
+      };
+      break;
+  }
+  return /* @__PURE__ */ jsxs2(
+    Stack,
+    __spreadProps(__spreadValues({}, props), {
+      sx: __spreadValues({
+        gap: 1,
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "fit-content",
+        zIndex: 1
+      }, props.sx),
+      children: [
+        /* @__PURE__ */ jsx16(
+          Stack,
+          {
+            sx: __spreadValues({
+              width: 32,
+              height: 32,
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: "50%",
+              borderWidth: 2,
+              borderStyle: "solid"
+            }, sxStyles),
+            children: variant !== "completed" ? step : /* @__PURE__ */ jsx16(
+              TaskAlt,
+              {
+                sx: {
+                  width: 18,
+                  height: 18
+                }
+              }
+            )
+          }
+        ),
+        /* @__PURE__ */ jsx16(
+          Typography2,
+          {
+            variant: "body1",
+            sx: {
+              fontWeight: fontWeights.semibold,
+              width: "max-content"
+            },
+            children: label
+          }
+        )
+      ]
+    })
+  );
+};
+
+// src/components/ProgressBar/Root/index.tsx
+import { Stack as Stack2, useTheme as useTheme13 } from "@mui/material";
+import { Fragment, jsx as jsx17, jsxs as jsxs3 } from "react/jsx-runtime";
+var ProgressBarRoot = ({
+  steps,
+  currentStep = 0
+}) => {
+  const theme2 = useTheme13();
+  const variantSelector = (index) => {
+    if (index + 1 < currentStep) {
+      return "completed";
+    } else if (index + 1 === currentStep) {
+      return "active";
+    } else {
+      return "waiting";
+    }
+  };
+  return /* @__PURE__ */ jsx17(
+    Stack2,
+    {
+      sx: {
+        flexDirection: "row",
+        alignItems: "start",
+        justifyContent: "center"
+      },
+      children: steps.map((step, index) => {
+        console.log(index, variantSelector(index), currentStep);
+        return /* @__PURE__ */ jsxs3(Fragment, { children: [
+          /* @__PURE__ */ jsx17(
+            ProgressBar.Item,
+            {
+              label: step,
+              variant: variantSelector(index),
+              step: index + 1
+            }
+          ),
+          index !== steps.length - 1 && /* @__PURE__ */ jsx17(
+            Stack2,
+            {
+              sx: {
+                width: "100%",
+                height: 4,
+                mt: "14px",
+                mx: -4,
+                zIndex: 0,
+                backgroundColor: variantSelector(index + 1) === "waiting" ? "#94ADFF" : theme2.palette.primary.main
+              }
+            }
+          )
+        ] });
+      })
+    }
+  );
+};
+
+// src/components/ProgressBar/index.ts
+var ProgressBar = {
+  Item: ProgressBarItem,
+  Root: ProgressBarRoot
+};
+
 // src/components/Sidebar/Container/index.tsx
 import { useCallback, useEffect as useEffect2, useState as useState3 } from "react";
 import { Outlet } from "react-router-dom";
 
 // src/components/Sidebar/Context/index.tsx
-import { useMediaQuery, useTheme as useTheme12 } from "@mui/material";
+import { useMediaQuery, useTheme as useTheme14 } from "@mui/material";
 import { createContext, useContext, useState as useState2 } from "react";
-import { jsx as jsx16 } from "react/jsx-runtime";
+import { jsx as jsx18 } from "react/jsx-runtime";
 var SidebarContext = createContext({});
 var SidebarProvider = ({ children }) => {
-  const theme2 = useTheme12();
+  const theme2 = useTheme14();
   const downMd = useMediaQuery(theme2.breakpoints.down("md"));
   const initialStatus = !downMd;
   const [sidebarIsOpen, setSidebarIsOpen] = useState2(initialStatus);
   const openSidebar = () => setSidebarIsOpen(true);
   const closeSidebar = () => setSidebarIsOpen(false);
   const toggleSidebar = () => setSidebarIsOpen((prev) => !prev);
-  return /* @__PURE__ */ jsx16(
+  return /* @__PURE__ */ jsx18(
     SidebarContext.Provider,
     {
       value: { openSidebar, closeSidebar, sidebarIsOpen, toggleSidebar },
@@ -812,7 +966,7 @@ var useSidebar = () => {
 };
 
 // src/components/Sidebar/Container/index.tsx
-import { Fragment, jsx as jsx17, jsxs as jsxs2 } from "react/jsx-runtime";
+import { Fragment as Fragment2, jsx as jsx19, jsxs as jsxs4 } from "react/jsx-runtime";
 var Container = ({ navigation }) => {
   const hasPermission = useCallback((module) => !!module, []);
   const { toggleSidebar, sidebarIsOpen } = useSidebar();
@@ -834,21 +988,21 @@ var Container = ({ navigation }) => {
     setLinks((prev) => prev == null ? void 0 : prev.filter(checkPermissions));
     setIsFiltering(false);
   }, [checkPermissions, hasPermission]);
-  return /* @__PURE__ */ jsxs2(Fragment, { children: [
-    /* @__PURE__ */ jsxs2(Sidebar.Root, { children: [
-      /* @__PURE__ */ jsx17(
+  return /* @__PURE__ */ jsxs4(Fragment2, { children: [
+    /* @__PURE__ */ jsxs4(Sidebar.Root, { children: [
+      /* @__PURE__ */ jsx19(
         Sidebar.Header,
         {
-          logo: /* @__PURE__ */ jsx17(Logo, {}),
-          shrunkenLogo: /* @__PURE__ */ jsx17(Logo, { variant: "icon" })
+          logo: /* @__PURE__ */ jsx19(Logo, {}),
+          shrunkenLogo: /* @__PURE__ */ jsx19(Logo, { variant: "icon" })
         }
       ),
-      /* @__PURE__ */ jsxs2(Sidebar.Content.Wrapper, { children: [
-        /* @__PURE__ */ jsx17(Sidebar.Content.Title, { children: "Menu" }),
-        /* @__PURE__ */ jsx17(Sidebar.Content.Items, { children: !isFiltering && (links == null ? void 0 : links.map((item, index) => {
+      /* @__PURE__ */ jsxs4(Sidebar.Content.Wrapper, { children: [
+        /* @__PURE__ */ jsx19(Sidebar.Content.Title, { children: "Menu" }),
+        /* @__PURE__ */ jsx19(Sidebar.Content.Items, { children: !isFiltering && (links == null ? void 0 : links.map((item, index) => {
           var _a, _b, _c, _d, _e;
           if ((item == null ? void 0 : item.subItens) && ((_a = item == null ? void 0 : item.subItens) == null ? void 0 : _a.length) > 0) {
-            return /* @__PURE__ */ jsx17(
+            return /* @__PURE__ */ jsx19(
               NavLink2,
               {
                 onClick: toggleSidebar,
@@ -860,7 +1014,7 @@ var Container = ({ navigation }) => {
               index
             );
           } else if (item) {
-            return /* @__PURE__ */ jsx17(
+            return /* @__PURE__ */ jsx19(
               NavLink2,
               {
                 to: (_d = item == null ? void 0 : item.to) != null ? _d : "",
@@ -873,17 +1027,17 @@ var Container = ({ navigation }) => {
           }
         })) })
       ] }),
-      /* @__PURE__ */ jsx17(Sidebar.Footer, { text: "Powered by Nuv Tech", shrunkenText: "Nuv Tech" })
+      /* @__PURE__ */ jsx19(Sidebar.Footer, { text: "Powered by Nuv Tech", shrunkenText: "Nuv Tech" })
     ] }),
-    /* @__PURE__ */ jsx17(Sidebar.Page, { children: /* @__PURE__ */ jsx17(Outlet, {}) })
+    /* @__PURE__ */ jsx19(Sidebar.Page, { children: /* @__PURE__ */ jsx19(Outlet, {}) })
   ] });
 };
 
 // src/components/Sidebar/Content/Items/index.tsx
 import { Box as Box3 } from "@mui/material";
-import { jsx as jsx18 } from "react/jsx-runtime";
+import { jsx as jsx20 } from "react/jsx-runtime";
 var ContentItems = ({ children }) => {
-  return /* @__PURE__ */ jsx18(
+  return /* @__PURE__ */ jsx20(
     Box3,
     {
       component: "nav",
@@ -898,11 +1052,11 @@ var ContentItems = ({ children }) => {
 };
 
 // src/components/Sidebar/Content/Title/index.tsx
-import { Box as Box4, Typography as Typography2 } from "@mui/material";
-import { jsx as jsx19 } from "react/jsx-runtime";
+import { Box as Box4, Typography as Typography3 } from "@mui/material";
+import { jsx as jsx21 } from "react/jsx-runtime";
 var ContentTitle = ({ children }) => {
   const { sidebarIsOpen } = useSidebar();
-  return /* @__PURE__ */ jsx19(
+  return /* @__PURE__ */ jsx21(
     Box4,
     {
       sx: {
@@ -911,8 +1065,8 @@ var ContentTitle = ({ children }) => {
         borderColor: "divider",
         display: "flex"
       },
-      children: /* @__PURE__ */ jsx19(
-        Typography2,
+      children: /* @__PURE__ */ jsx21(
+        Typography3,
         {
           fontSize: 12,
           sx: {
@@ -927,13 +1081,13 @@ var ContentTitle = ({ children }) => {
 };
 
 // src/components/Sidebar/Content/Wrapper/index.tsx
-import { Box as Box5, useTheme as useTheme13 } from "@mui/material";
-import { jsx as jsx20 } from "react/jsx-runtime";
+import { Box as Box5, useTheme as useTheme15 } from "@mui/material";
+import { jsx as jsx22 } from "react/jsx-runtime";
 var ContentWrapper = ({ children }) => {
-  const theme2 = useTheme13();
+  const theme2 = useTheme15();
   const { sidebarIsOpen } = useSidebar();
   const width = sidebarIsOpen ? 242 : 89;
-  return /* @__PURE__ */ jsx20(
+  return /* @__PURE__ */ jsx22(
     Box5,
     {
       sx: {
@@ -963,13 +1117,13 @@ var Content = {
 };
 
 // src/components/Sidebar/Footer/index.tsx
-import { Box as Box6, useTheme as useTheme14 } from "@mui/material";
-import { jsxs as jsxs3 } from "react/jsx-runtime";
+import { Box as Box6, useTheme as useTheme16 } from "@mui/material";
+import { jsxs as jsxs5 } from "react/jsx-runtime";
 var Footer = ({ shrunkenText = "", text = "" }) => {
   const { sidebarIsOpen } = useSidebar();
-  const theme2 = useTheme14();
+  const theme2 = useTheme16();
   const width = sidebarIsOpen ? 242 : 89;
-  return /* @__PURE__ */ jsxs3(
+  return /* @__PURE__ */ jsxs5(
     Box6,
     {
       sx: {
@@ -1001,13 +1155,13 @@ var Footer = ({ shrunkenText = "", text = "" }) => {
 
 // src/components/Sidebar/Header/index.tsx
 import { ChevronRight as ChevronRight2 } from "@mui/icons-material";
-import { Box as Box7, useTheme as useTheme15 } from "@mui/material";
-import { jsx as jsx21, jsxs as jsxs4 } from "react/jsx-runtime";
+import { Box as Box7, useTheme as useTheme17 } from "@mui/material";
+import { jsx as jsx23, jsxs as jsxs6 } from "react/jsx-runtime";
 var Header = ({ logo, shrunkenLogo }) => {
-  const theme2 = useTheme15();
+  const theme2 = useTheme17();
   const { sidebarIsOpen, toggleSidebar } = useSidebar();
   const width = sidebarIsOpen ? 242 : 89;
-  return /* @__PURE__ */ jsxs4(
+  return /* @__PURE__ */ jsxs6(
     Box7,
     {
       sx: {
@@ -1030,7 +1184,7 @@ var Header = ({ logo, shrunkenLogo }) => {
       },
       children: [
         sidebarIsOpen ? logo : shrunkenLogo,
-        /* @__PURE__ */ jsx21(
+        /* @__PURE__ */ jsx23(
           Box7,
           {
             component: "button",
@@ -1050,7 +1204,7 @@ var Header = ({ logo, shrunkenLogo }) => {
               cursor: "pointer"
             },
             onClick: toggleSidebar,
-            children: /* @__PURE__ */ jsx21(
+            children: /* @__PURE__ */ jsx23(
               Box7,
               {
                 sx: {
@@ -1060,7 +1214,7 @@ var Header = ({ logo, shrunkenLogo }) => {
                   justifyContent: "center",
                   transition: "all 0.2s ease-in-out"
                 },
-                children: /* @__PURE__ */ jsx21(ChevronRight2, { fontSize: "small" })
+                children: /* @__PURE__ */ jsx23(ChevronRight2, { fontSize: "small" })
               }
             )
           }
@@ -1071,12 +1225,12 @@ var Header = ({ logo, shrunkenLogo }) => {
 };
 
 // src/components/Sidebar/Page/index.tsx
-import { Box as Box8, useTheme as useTheme16 } from "@mui/material";
-import { jsx as jsx22 } from "react/jsx-runtime";
+import { Box as Box8, useTheme as useTheme18 } from "@mui/material";
+import { jsx as jsx24 } from "react/jsx-runtime";
 var Page = ({ children }) => {
-  const theme2 = useTheme16();
+  const theme2 = useTheme18();
   const { sidebarIsOpen } = useSidebar();
-  return /* @__PURE__ */ jsx22(
+  return /* @__PURE__ */ jsx24(
     Box8,
     {
       sx: {
@@ -1095,10 +1249,10 @@ var Page = ({ children }) => {
 
 // src/components/Sidebar/Root/index.tsx
 import { Drawer } from "@mui/material";
-import { jsx as jsx23 } from "react/jsx-runtime";
+import { jsx as jsx25 } from "react/jsx-runtime";
 var Root = ({ children }) => {
   const { sidebarIsOpen } = useSidebar();
-  return /* @__PURE__ */ jsx23(Drawer, { variant: "permanent", open: sidebarIsOpen, children });
+  return /* @__PURE__ */ jsx25(Drawer, { variant: "permanent", open: sidebarIsOpen, children });
 };
 
 // src/components/Sidebar/index.ts
@@ -1114,14 +1268,14 @@ var Sidebar = {
 
 // src/components/TagStatus/index.tsx
 import {
-  Stack,
-  Typography as Typography3,
-  useTheme as useTheme17
+  Stack as Stack3,
+  Typography as Typography4,
+  useTheme as useTheme19
 } from "@mui/material";
-import { jsx as jsx24 } from "react/jsx-runtime";
+import { jsx as jsx26 } from "react/jsx-runtime";
 var TagStatus = (_a) => {
   var _b = _a, { variant, children } = _b, props = __objRest(_b, ["variant", "children"]);
-  const theme2 = useTheme17();
+  const theme2 = useTheme19();
   let styleSx = {};
   switch (variant) {
     case "approve":
@@ -1161,16 +1315,16 @@ var TagStatus = (_a) => {
       };
       break;
   }
-  return /* @__PURE__ */ jsx24(
-    Stack,
+  return /* @__PURE__ */ jsx26(
+    Stack3,
     __spreadProps(__spreadValues({}, props), {
       sx: __spreadValues(__spreadValues({
         borderRadius: radii.xs,
         px: space[4],
         py: space[2]
       }, styleSx), props.sx),
-      children: /* @__PURE__ */ jsx24(
-        Typography3,
+      children: /* @__PURE__ */ jsx26(
+        Typography4,
         {
           sx: {
             color: "inherit",
@@ -1187,7 +1341,7 @@ var TagStatus = (_a) => {
 // src/components/TextField/Default/index.tsx
 import {
   TextField as TextFieldMUI,
-  useTheme as useTheme18
+  useTheme as useTheme20
 } from "@mui/material";
 import { forwardRef } from "react";
 
@@ -1214,11 +1368,11 @@ var masks = ({ type, data }) => {
 };
 
 // src/components/TextField/Default/index.tsx
-import { jsx as jsx25 } from "react/jsx-runtime";
+import { jsx as jsx27 } from "react/jsx-runtime";
 var TextFieldDefault = forwardRef((_a, ref) => {
   var _b = _a, { mask } = _b, props = __objRest(_b, ["mask"]);
-  const theme2 = useTheme18();
-  return /* @__PURE__ */ jsx25(
+  const theme2 = useTheme20();
+  return /* @__PURE__ */ jsx27(
     TextFieldMUI,
     __spreadProps(__spreadValues({}, props), {
       ref,
@@ -1257,13 +1411,13 @@ import {
   IconButton as IconButton2,
   InputAdornment,
   InputLabel,
-  Stack as Stack2,
-  Typography as Typography4,
-  useTheme as useTheme19
+  Stack as Stack4,
+  Typography as Typography5,
+  useTheme as useTheme21
 } from "@mui/material";
 import { forwardRef as forwardRef2, useState as useState4 } from "react";
 import { Link as Link2 } from "react-router-dom";
-import { jsx as jsx26, jsxs as jsxs5 } from "react/jsx-runtime";
+import { jsx as jsx28, jsxs as jsxs7 } from "react/jsx-runtime";
 var TextFieldExternalLabel = forwardRef2(
   (_a, ref) => {
     var _b = _a, {
@@ -1279,20 +1433,20 @@ var TextFieldExternalLabel = forwardRef2(
       "labelProps",
       "errorMessage"
     ]);
-    const theme2 = useTheme19();
+    const theme2 = useTheme21();
     const [canSeeValue, setCanSeeValue] = useState4(label !== "Senha");
     const handleChangeCanSeeValue = () => {
       setCanSeeValue((prev) => !prev);
     };
-    return /* @__PURE__ */ jsxs5(
-      Stack2,
+    return /* @__PURE__ */ jsxs7(
+      Stack4,
       __spreadProps(__spreadValues({}, containerProps), {
         sx: {
           gap: 1
         },
         children: [
-          /* @__PURE__ */ jsxs5(
-            Stack2,
+          /* @__PURE__ */ jsxs7(
+            Stack4,
             {
               sx: {
                 flexDirection: "row",
@@ -1300,7 +1454,7 @@ var TextFieldExternalLabel = forwardRef2(
                 alignItems: "center"
               },
               children: [
-                /* @__PURE__ */ jsx26(
+                /* @__PURE__ */ jsx28(
                   InputLabel,
                   __spreadProps(__spreadValues({}, labelProps), {
                     sx: {
@@ -1312,7 +1466,7 @@ var TextFieldExternalLabel = forwardRef2(
                     children: label
                   })
                 ),
-                label === "Senha" && /* @__PURE__ */ jsx26(
+                label === "Senha" && /* @__PURE__ */ jsx28(
                   Box9,
                   {
                     component: Link2,
@@ -1326,7 +1480,7 @@ var TextFieldExternalLabel = forwardRef2(
               ]
             }
           ),
-          /* @__PURE__ */ jsx26(
+          /* @__PURE__ */ jsx28(
             TextField.Default,
             __spreadProps(__spreadValues({}, props), {
               ref,
@@ -1339,20 +1493,20 @@ var TextFieldExternalLabel = forwardRef2(
                 }
               }, props.sx),
               InputProps: {
-                endAdornment: visibilityChange && /* @__PURE__ */ jsx26(InputAdornment, { position: "end", children: /* @__PURE__ */ jsx26(
+                endAdornment: visibilityChange && /* @__PURE__ */ jsx28(InputAdornment, { position: "end", children: /* @__PURE__ */ jsx28(
                   IconButton2,
                   {
                     "aria-label": "Altere a visibilidade",
                     onClick: handleChangeCanSeeValue,
                     edge: "end",
-                    children: canSeeValue ? /* @__PURE__ */ jsx26(VisibilityOff, {}) : /* @__PURE__ */ jsx26(Visibility, {})
+                    children: canSeeValue ? /* @__PURE__ */ jsx28(VisibilityOff, {}) : /* @__PURE__ */ jsx28(Visibility, {})
                   }
                 ) })
               }
             })
           ),
-          (props == null ? void 0 : props.error) && /* @__PURE__ */ jsxs5(
-            Stack2,
+          (props == null ? void 0 : props.error) && /* @__PURE__ */ jsxs7(
+            Stack4,
             {
               sx: {
                 color: theme2.palette.error.main,
@@ -1360,7 +1514,7 @@ var TextFieldExternalLabel = forwardRef2(
                 gap: 1
               },
               children: [
-                /* @__PURE__ */ jsx26(
+                /* @__PURE__ */ jsx28(
                   ErrorOutline,
                   {
                     sx: {
@@ -1369,8 +1523,8 @@ var TextFieldExternalLabel = forwardRef2(
                     }
                   }
                 ),
-                /* @__PURE__ */ jsx26(
-                  Typography4,
+                /* @__PURE__ */ jsx28(
+                  Typography5,
                   {
                     variant: "caption",
                     sx: {
@@ -1390,15 +1544,15 @@ var TextFieldExternalLabel = forwardRef2(
 TextFieldExternalLabel.displayName = "External Label";
 
 // src/components/TextField/Icon/index.tsx
-import { InputAdornment as InputAdornment2, useTheme as useTheme20 } from "@mui/material";
+import { InputAdornment as InputAdornment2, useTheme as useTheme22 } from "@mui/material";
 import { forwardRef as forwardRef3 } from "react";
-import { jsx as jsx27 } from "react/jsx-runtime";
+import { jsx as jsx29 } from "react/jsx-runtime";
 var TextFieldIcon = forwardRef3(
   (_a, ref) => {
     var _b = _a, { icon } = _b, props = __objRest(_b, ["icon"]);
     var _a2;
-    const theme2 = useTheme20();
-    return /* @__PURE__ */ jsx27(
+    const theme2 = useTheme22();
+    return /* @__PURE__ */ jsx29(
       TextField.Default,
       __spreadProps(__spreadValues({}, props), {
         ref,
@@ -1413,7 +1567,7 @@ var TextFieldIcon = forwardRef3(
           sx: __spreadValues({
             height: 52
           }, (_a2 = props.InputProps) == null ? void 0 : _a2.sx),
-          startAdornment: /* @__PURE__ */ jsx27(InputAdornment2, { position: "start", children: icon })
+          startAdornment: /* @__PURE__ */ jsx29(InputAdornment2, { position: "start", children: icon })
         }, props.InputProps)
       })
     );
@@ -1423,13 +1577,13 @@ TextFieldIcon.displayName = "Icon";
 
 // src/components/TextField/InternalLabel/index.tsx
 import { ErrorOutline as ErrorOutline2 } from "@mui/icons-material";
-import { FormControl, Stack as Stack3, Typography as Typography5, useTheme as useTheme21 } from "@mui/material";
+import { FormControl, Stack as Stack5, Typography as Typography6, useTheme as useTheme23 } from "@mui/material";
 import { forwardRef as forwardRef4 } from "react";
-import { jsx as jsx28, jsxs as jsxs6 } from "react/jsx-runtime";
+import { jsx as jsx30, jsxs as jsxs8 } from "react/jsx-runtime";
 var TextFieldInternalLabel = forwardRef4((_a, ref) => {
   var _b = _a, { errorMessage } = _b, props = __objRest(_b, ["errorMessage"]);
-  const theme2 = useTheme21();
-  return /* @__PURE__ */ jsxs6(
+  const theme2 = useTheme23();
+  return /* @__PURE__ */ jsxs8(
     FormControl,
     {
       fullWidth: true,
@@ -1439,7 +1593,7 @@ var TextFieldInternalLabel = forwardRef4((_a, ref) => {
         gap: 1
       },
       children: [
-        /* @__PURE__ */ jsx28(
+        /* @__PURE__ */ jsx30(
           TextField.Default,
           __spreadProps(__spreadValues({}, props), {
             ref,
@@ -1464,8 +1618,8 @@ var TextFieldInternalLabel = forwardRef4((_a, ref) => {
             }, props.InputProps)
           })
         ),
-        (props == null ? void 0 : props.error) && /* @__PURE__ */ jsxs6(
-          Stack3,
+        (props == null ? void 0 : props.error) && /* @__PURE__ */ jsxs8(
+          Stack5,
           {
             sx: {
               color: theme2.palette.error.main,
@@ -1473,7 +1627,7 @@ var TextFieldInternalLabel = forwardRef4((_a, ref) => {
               gap: 1
             },
             children: [
-              /* @__PURE__ */ jsx28(
+              /* @__PURE__ */ jsx30(
                 ErrorOutline2,
                 {
                   sx: {
@@ -1482,8 +1636,8 @@ var TextFieldInternalLabel = forwardRef4((_a, ref) => {
                   }
                 }
               ),
-              /* @__PURE__ */ jsx28(
-                Typography5,
+              /* @__PURE__ */ jsx30(
+                Typography6,
                 {
                   variant: "caption",
                   sx: {
@@ -1569,6 +1723,7 @@ export {
   Logo,
   NavLink2 as NavLink,
   ProfilePhoto,
+  ProgressBar,
   Sidebar,
   TagStatus,
   TextField,

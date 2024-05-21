@@ -118,6 +118,25 @@ type ProfilePhotoProps = {
 } & AvatarProps;
 declare const ProfilePhoto: ({ src, ...props }: ProfilePhotoProps) => react_jsx_runtime.JSX.Element;
 
+type ProgressBarItem = {
+    variant: "waiting" | "active" | "completed";
+    label: string;
+    step: number;
+} & StackProps;
+declare const ProgressBarItem: ({ variant, label, step, ...props }: ProgressBarItem) => react_jsx_runtime.JSX.Element;
+
+type ProgressBarRoot = {
+    steps: string[];
+    currentStep?: number;
+};
+declare const ProgressBarRoot: ({ steps, currentStep, }: ProgressBarRoot) => react_jsx_runtime.JSX.Element;
+
+declare const ProgressBar: {
+    Item: ({ variant, label, step, ...props }: ProgressBarItem) => react_jsx_runtime.JSX.Element;
+    Root: ({ steps, currentStep }: ProgressBarRoot) => react_jsx_runtime.JSX.Element;
+};
+type ProgressBarProps = ProgressBarRoot;
+
 type FooterProps = {
     text: string;
     shrunkenText: string;
@@ -224,4 +243,4 @@ type TextFieldProps = TextFieldDefaultProps;
 
 declare const theme: _mui_material.Theme;
 
-export { Button, type ButtonProps, ButtonSmall, type ButtonSmallProps, IconButton, type IconButtonProps, Logo, type LogoProps, NavLink, type NavLinkProps, ProfilePhoto, type ProfilePhotoProps, Sidebar, type SidebarProps, TagStatus, type TagStatusProps, TextField, type TextFieldProps, theme };
+export { Button, type ButtonProps, ButtonSmall, type ButtonSmallProps, IconButton, type IconButtonProps, Logo, type LogoProps, NavLink, type NavLinkProps, ProfilePhoto, type ProfilePhotoProps, ProgressBar, type ProgressBarProps, Sidebar, type SidebarProps, TagStatus, type TagStatusProps, TextField, type TextFieldProps, theme };
