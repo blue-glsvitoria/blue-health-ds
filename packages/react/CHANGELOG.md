@@ -1,5 +1,11 @@
 # @blue-health/react
 
+## 3.3.0
+
+### Minor Changes
+
+- Create Icon Button Component
+
 ## 3.2.1
 
 ### Patch Changes
