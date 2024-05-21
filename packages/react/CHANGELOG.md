@@ -1,5 +1,17 @@
 # @blue-health/react
 
+## 3.5.1
+
+### Patch Changes
+
+- Create more two variant for Button Small
+
+## 3.5.0
+
+### Minor Changes
+
+- Create Tag Status Component
+
 ## 3.4.0
 
 ### Minor Changes

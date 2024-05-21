@@ -37,6 +37,10 @@ type IButtonSmallWarningProps = {
     children?: React.ReactNode;
 } & ButtonSmallProps;
 
+type IButtonSmallErrorOutlineProps = {
+    children?: React.ReactNode;
+} & ButtonSmallProps;
+
 type IButtonSmallErrorProps = {
     children?: React.ReactNode;
 } & ButtonSmallProps;
@@ -56,7 +60,17 @@ declare const ButtonSmall: {
     }, "className" | "style" | "classes" | "action" | "centerRipple" | "children" | "disabled" | "disableRipple" | "disableTouchRipple" | "focusRipple" | "focusVisibleClassName" | "LinkComponent" | "onFocusVisible" | "sx" | "tabIndex" | "TouchRippleProps" | "touchRippleRef" | "color" | "disableElevation" | "disableFocusRipple" | "endIcon" | "fullWidth" | "href" | "size" | "startIcon" | "variant"> & {
         component?: react.ElementType<any, keyof react.JSX.IntrinsicElements> | undefined;
     }) => react_jsx_runtime.JSX.Element;
+    PrimaryOutline: ({ children, ...props }: {
+        children: react.ReactNode;
+    } & {
+        children?: react.ReactNode;
+    } & _mui_material.ButtonOwnProps & Omit<_mui_material.ButtonBaseOwnProps, "classes"> & _mui_material_OverridableComponent.CommonProps & Omit<Omit<react.DetailedHTMLProps<react.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "ref"> & {
+        ref?: ((instance: HTMLButtonElement | null) => void) | react.RefObject<HTMLButtonElement> | null | undefined;
+    }, "className" | "style" | "classes" | "action" | "centerRipple" | "children" | "disabled" | "disableRipple" | "disableTouchRipple" | "focusRipple" | "focusVisibleClassName" | "LinkComponent" | "onFocusVisible" | "sx" | "tabIndex" | "TouchRippleProps" | "touchRippleRef" | "color" | "disableElevation" | "disableFocusRipple" | "endIcon" | "fullWidth" | "href" | "size" | "startIcon" | "variant"> & {
+        component?: react.ElementType<any, keyof react.JSX.IntrinsicElements> | undefined;
+    }) => react_jsx_runtime.JSX.Element;
     Error: ({ children, ...props }: IButtonSmallErrorProps) => react_jsx_runtime.JSX.Element;
+    ErrorOutline: ({ children, ...props }: IButtonSmallErrorOutlineProps) => react_jsx_runtime.JSX.Element;
     Warning: ({ children, ...props }: IButtonSmallWarningProps) => react_jsx_runtime.JSX.Element;
     Success: ({ children, ...props }: IButtonSmallSuccessProps) => react_jsx_runtime.JSX.Element;
     OutlineGrey: ({ children, ...props }: {

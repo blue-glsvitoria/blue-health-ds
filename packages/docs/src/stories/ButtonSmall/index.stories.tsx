@@ -1,4 +1,4 @@
-import {   ButtonSmall, ButtonSmallProps } from "@blue-health/react"
+import { ButtonSmall, ButtonSmallProps } from "@blue-health/react"
 import type { StoryObj, Meta } from "@storybook/react"
 
 const meta = {
@@ -30,6 +30,12 @@ export const Primary = () => (
   </ButtonSmall.Primary>
 );
 
+export const PrimaryOutline = () => (
+  <ButtonSmall.PrimaryOutline>
+    Primary
+  </ButtonSmall.PrimaryOutline>
+);
+
 export const PrimaryDisabled = () => (
   <ButtonSmall.Primary disabled>
     Primary Disabled
@@ -52,6 +58,12 @@ export const Error = () => (
   <ButtonSmall.Error>
     Error
   </ButtonSmall.Error>
+);
+
+export const ErrorOutline = () => (
+  <ButtonSmall.ErrorOutline>
+    Error
+  </ButtonSmall.ErrorOutline>
 );
 
 export const ErrorDisabled = () => (

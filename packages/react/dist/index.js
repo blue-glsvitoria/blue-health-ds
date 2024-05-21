@@ -277,10 +277,10 @@ var ButtonSmallError = (_a) => {
   );
 };
 
-// src/components/ButtonSmall/OutlineGrey/index.tsx
+// src/components/ButtonSmall/ErrorOutline/index.tsx
 var import_material6 = require("@mui/material");
 var import_jsx_runtime6 = require("react/jsx-runtime");
-var ButtonSmallOutlineGrey = (_a) => {
+var ButtonSmallErrorOutline = (_a) => {
   var _b = _a, {
     children
   } = _b, props = __objRest(_b, [
@@ -288,6 +288,37 @@ var ButtonSmallOutlineGrey = (_a) => {
   ]);
   const theme2 = (0, import_material6.useTheme)();
   return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+    ButtonSmall.Default,
+    __spreadProps(__spreadValues({}, props), {
+      sx: __spreadValues({
+        backgroundColor: theme2.palette.common.white,
+        borderColor: theme2.palette.error.main,
+        color: theme2.palette.error.main,
+        "&:hover": {
+          backgroundColor: theme2.palette.error.dark,
+          color: theme2.palette.common.white
+        },
+        ":disabled": {
+          backgroundColor: "#D7D7D7",
+          color: theme2.palette.common.white
+        }
+      }, props.sx),
+      children
+    })
+  );
+};
+
+// src/components/ButtonSmall/OutlineGrey/index.tsx
+var import_material7 = require("@mui/material");
+var import_jsx_runtime7 = require("react/jsx-runtime");
+var ButtonSmallOutlineGrey = (_a) => {
+  var _b = _a, {
+    children
+  } = _b, props = __objRest(_b, [
+    "children"
+  ]);
+  const theme2 = (0, import_material7.useTheme)();
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
     ButtonSmall.Default,
     __spreadProps(__spreadValues({}, props), {
       sx: __spreadValues({
@@ -309,16 +340,16 @@ var ButtonSmallOutlineGrey = (_a) => {
 };
 
 // src/components/ButtonSmall/Primary/index.tsx
-var import_material7 = require("@mui/material");
-var import_jsx_runtime7 = require("react/jsx-runtime");
+var import_material8 = require("@mui/material");
+var import_jsx_runtime8 = require("react/jsx-runtime");
 var ButtonSmallPrimary = (_a) => {
   var _b = _a, {
     children
   } = _b, props = __objRest(_b, [
     "children"
   ]);
-  const theme2 = (0, import_material7.useTheme)();
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+  const theme2 = (0, import_material8.useTheme)();
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
     ButtonSmall.Default,
     __spreadProps(__spreadValues({}, props), {
       sx: __spreadValues({
@@ -338,17 +369,48 @@ var ButtonSmallPrimary = (_a) => {
   );
 };
 
+// src/components/ButtonSmall/PrimaryOutline/index.tsx
+var import_material9 = require("@mui/material");
+var import_jsx_runtime9 = require("react/jsx-runtime");
+var ButtonSmallPrimaryOutline = (_a) => {
+  var _b = _a, {
+    children
+  } = _b, props = __objRest(_b, [
+    "children"
+  ]);
+  const theme2 = (0, import_material9.useTheme)();
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+    ButtonSmall.Default,
+    __spreadProps(__spreadValues({}, props), {
+      sx: __spreadValues({
+        backgroundColor: theme2.palette.common.white,
+        borderColor: theme2.palette.primary.main,
+        color: theme2.palette.primary.main,
+        ":hover": {
+          backgroundColor: theme2.palette.primary.dark,
+          color: theme2.palette.common.white
+        },
+        ":disabled": {
+          backgroundColor: "#D7D7D7",
+          color: theme2.palette.common.white
+        }
+      }, props.sx),
+      children
+    })
+  );
+};
+
 // src/components/ButtonSmall/Success/index.tsx
-var import_material8 = require("@mui/material");
-var import_jsx_runtime8 = require("react/jsx-runtime");
+var import_material10 = require("@mui/material");
+var import_jsx_runtime10 = require("react/jsx-runtime");
 var ButtonSmallSuccess = (_a) => {
   var _b = _a, {
     children
   } = _b, props = __objRest(_b, [
     "children"
   ]);
-  const theme2 = (0, import_material8.useTheme)();
-  return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+  const theme2 = (0, import_material10.useTheme)();
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
     ButtonSmall.Default,
     __spreadProps(__spreadValues({}, props), {
       sx: __spreadValues({
@@ -369,16 +431,16 @@ var ButtonSmallSuccess = (_a) => {
 };
 
 // src/components/ButtonSmall/Warning/index.tsx
-var import_material9 = require("@mui/material");
-var import_jsx_runtime9 = require("react/jsx-runtime");
+var import_material11 = require("@mui/material");
+var import_jsx_runtime11 = require("react/jsx-runtime");
 var ButtonSmallWarning = (_a) => {
   var _b = _a, {
     children
   } = _b, props = __objRest(_b, [
     "children"
   ]);
-  const theme2 = (0, import_material9.useTheme)();
-  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+  const theme2 = (0, import_material11.useTheme)();
+  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
     ButtonSmall.Default,
     __spreadProps(__spreadValues({}, props), {
       sx: __spreadValues({
@@ -402,15 +464,17 @@ var ButtonSmallWarning = (_a) => {
 var ButtonSmall = {
   Default: ButtonSmallDefault,
   Primary: ButtonSmallPrimary,
+  PrimaryOutline: ButtonSmallPrimaryOutline,
   Error: ButtonSmallError,
+  ErrorOutline: ButtonSmallErrorOutline,
   Warning: ButtonSmallWarning,
   Success: ButtonSmallSuccess,
   OutlineGrey: ButtonSmallOutlineGrey
 };
 
 // src/components/IconButton/index.tsx
-var import_material10 = require("@mui/material");
-var import_jsx_runtime10 = require("react/jsx-runtime");
+var import_material12 = require("@mui/material");
+var import_jsx_runtime12 = require("react/jsx-runtime");
 var IconButton = (_a) => {
   var _b = _a, {
     icon,
@@ -419,9 +483,9 @@ var IconButton = (_a) => {
     "icon",
     "active"
   ]);
-  const theme2 = (0, import_material10.useTheme)();
-  return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-    import_material10.IconButton,
+  const theme2 = (0, import_material12.useTheme)();
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+    import_material12.IconButton,
     __spreadProps(__spreadValues({}, props), {
       sx: {
         width: 32,
@@ -446,7 +510,7 @@ var IconButton = (_a) => {
 };
 
 // src/components/Logo/index.tsx
-var import_material11 = require("@mui/material");
+var import_material13 = require("@mui/material");
 var import_react_router_dom = require("react-router-dom");
 
 // src/assets/icon.svg
@@ -456,18 +520,18 @@ var icon_default = "./icon-YVYQOXLC.svg";
 var logo_default = "./logo-EOLDLCYN.svg";
 
 // src/components/Logo/index.tsx
-var import_jsx_runtime11 = require("react/jsx-runtime");
+var import_jsx_runtime13 = require("react/jsx-runtime");
 var Logo = ({ variant = "standard" }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_react_router_dom.Link, { to: "/", draggable: false, children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
-    import_material11.Box,
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_react_router_dom.Link, { to: "/", draggable: false, children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+    import_material13.Box,
     {
       sx: {
         display: "flex",
         justifyCOntent: "center",
         alignItems: "center"
       },
-      children: variant === "standard" ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
-        import_material11.Box,
+      children: variant === "standard" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+        import_material13.Box,
         {
           component: "img",
           src: logo_default,
@@ -475,8 +539,8 @@ var Logo = ({ variant = "standard" }) => {
           sx: { height: 38, width: 112 },
           draggable: false
         }
-      ) : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
-        import_material11.Box,
+      ) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+        import_material13.Box,
         {
           component: "img",
           src: icon_default,
@@ -491,10 +555,10 @@ var Logo = ({ variant = "standard" }) => {
 
 // src/components/NavLink/index.tsx
 var import_icons_material = require("@mui/icons-material");
-var import_material12 = require("@mui/material");
+var import_material14 = require("@mui/material");
 var import_react = require("react");
 var RouterDOM = __toESM(require("react-router-dom"));
-var import_jsx_runtime12 = require("react/jsx-runtime");
+var import_jsx_runtime14 = require("react/jsx-runtime");
 var NavLink2 = ({
   icon = "",
   label = "",
@@ -503,7 +567,7 @@ var NavLink2 = ({
   variant = "standard",
   onClick
 }) => {
-  const theme2 = (0, import_material12.useTheme)();
+  const theme2 = (0, import_material14.useTheme)();
   const [isCollapsed, setIsCollapsed] = (0, import_react.useState)(false);
   const location = RouterDOM.useLocation();
   (0, import_react.useEffect)(() => {
@@ -527,8 +591,8 @@ var NavLink2 = ({
     }
   };
   if (items.length > 0) {
-    return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
-      import_material12.Box,
+    return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
+      import_material14.Box,
       {
         sx: {
           width: "100%",
@@ -537,8 +601,8 @@ var NavLink2 = ({
           overflow: "hidden"
         },
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
-            import_material12.Box,
+          /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
+            import_material14.Box,
             {
               onClick: variant === "icon" ? handleClickIcon : handleCollapse,
               sx: {
@@ -563,18 +627,18 @@ var NavLink2 = ({
                 }
               },
               children: [
-                !!icon && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_material12.Box, { sx: { width: 24, height: 24 }, children: icon }),
+                !!icon && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_material14.Box, { sx: { width: 24, height: 24 }, children: icon }),
                 variant === "standard" && !!label && label,
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-                  import_material12.Box,
+                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+                  import_material14.Box,
                   {
                     sx: {
                       display: variant === "icon" ? "none" : "flex",
                       justifyContent: "end",
                       width: "100%"
                     },
-                    children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-                      import_material12.Box,
+                    children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+                      import_material14.Box,
                       {
                         sx: {
                           backgroundColor: isCollapsed ? theme2.palette.primary.main : "transparent",
@@ -586,7 +650,7 @@ var NavLink2 = ({
                           alignItems: "center",
                           transition: "all 0.1s ease-in-out"
                         },
-                        children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+                        children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
                           import_icons_material.ChevronRight,
                           {
                             fontSize: "small",
@@ -603,15 +667,15 @@ var NavLink2 = ({
               ]
             }
           ),
-          variant === "standard" && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-            import_material12.Collapse,
+          variant === "standard" && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+            import_material14.Collapse,
             {
               in: isCollapsed,
               sx: {
                 userSelect: "none"
               },
-              children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-                import_material12.Box,
+              children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+                import_material14.Box,
                 {
                   sx: {
                     display: "flex",
@@ -619,15 +683,15 @@ var NavLink2 = ({
                     gap: space[6],
                     marginTop: space[4]
                   },
-                  children: items == null ? void 0 : items.map((item, index) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+                  children: items == null ? void 0 : items.map((item, index) => /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
                     RouterDOM.NavLink,
                     {
                       to: item == null ? void 0 : item.to,
                       style: { textDecoration: "none" },
                       draggable: false,
                       children: ({ isActive }) => {
-                        return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
-                          import_material12.Box,
+                        return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
+                          import_material14.Box,
                           {
                             sx: {
                               height: 24,
@@ -648,7 +712,7 @@ var NavLink2 = ({
                               }
                             },
                             children: [
-                              !!(item == null ? void 0 : item.icon) && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_material12.Box, { sx: { height: 24, width: 24 }, children: item == null ? void 0 : item.icon }),
+                              !!(item == null ? void 0 : item.icon) && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_material14.Box, { sx: { height: 24, width: 24 }, children: item == null ? void 0 : item.icon }),
                               variant === "standard" && !!(item == null ? void 0 : item.label) && (item == null ? void 0 : item.label)
                             ]
                           }
@@ -665,8 +729,8 @@ var NavLink2 = ({
       }
     );
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-    import_material12.Box,
+  return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+    import_material14.Box,
     {
       sx: {
         borderRadius: radii.md,
@@ -676,7 +740,7 @@ var NavLink2 = ({
         userSelect: "none",
         width: "100%"
       },
-      children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
         RouterDOM.NavLink,
         {
           to,
@@ -684,8 +748,8 @@ var NavLink2 = ({
           draggable: false,
           children: ({ isActive }) => {
             console.log(isActive);
-            return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
-              import_material12.Box,
+            return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
+              import_material14.Box,
               {
                 sx: {
                   height: 24,
@@ -706,9 +770,9 @@ var NavLink2 = ({
                   }
                 },
                 children: [
-                  !!icon && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_material12.Box, { sx: { width: 24, height: 24 }, children: icon }),
-                  variant === "standard" && !!label && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-                    import_material12.Typography,
+                  !!icon && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_material14.Box, { sx: { width: 24, height: 24 }, children: icon }),
+                  variant === "standard" && !!label && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+                    import_material14.Typography,
                     {
                       variant: "body2",
                       sx: {
@@ -733,19 +797,19 @@ var import_react3 = require("react");
 var import_react_router_dom2 = require("react-router-dom");
 
 // src/components/Sidebar/Context/index.tsx
-var import_material13 = require("@mui/material");
+var import_material15 = require("@mui/material");
 var import_react2 = require("react");
-var import_jsx_runtime13 = require("react/jsx-runtime");
+var import_jsx_runtime15 = require("react/jsx-runtime");
 var SidebarContext = (0, import_react2.createContext)({});
 var SidebarProvider = ({ children }) => {
-  const theme2 = (0, import_material13.useTheme)();
-  const downMd = (0, import_material13.useMediaQuery)(theme2.breakpoints.down("md"));
+  const theme2 = (0, import_material15.useTheme)();
+  const downMd = (0, import_material15.useMediaQuery)(theme2.breakpoints.down("md"));
   const initialStatus = !downMd;
   const [sidebarIsOpen, setSidebarIsOpen] = (0, import_react2.useState)(initialStatus);
   const openSidebar = () => setSidebarIsOpen(true);
   const closeSidebar = () => setSidebarIsOpen(false);
   const toggleSidebar = () => setSidebarIsOpen((prev) => !prev);
-  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
     SidebarContext.Provider,
     {
       value: { openSidebar, closeSidebar, sidebarIsOpen, toggleSidebar },
@@ -758,7 +822,7 @@ var useSidebar = () => {
 };
 
 // src/components/Sidebar/Container/index.tsx
-var import_jsx_runtime14 = require("react/jsx-runtime");
+var import_jsx_runtime16 = require("react/jsx-runtime");
 var Container = ({ navigation }) => {
   const hasPermission = (0, import_react3.useCallback)((module2) => !!module2, []);
   const { toggleSidebar, sidebarIsOpen } = useSidebar();
@@ -780,21 +844,21 @@ var Container = ({ navigation }) => {
     setLinks((prev) => prev == null ? void 0 : prev.filter(checkPermissions));
     setIsFiltering(false);
   }, [checkPermissions, hasPermission]);
-  return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(import_jsx_runtime14.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(Sidebar.Root, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(import_jsx_runtime16.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(Sidebar.Root, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
         Sidebar.Header,
         {
-          logo: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Logo, {}),
-          shrunkenLogo: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Logo, { variant: "icon" })
+          logo: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Logo, {}),
+          shrunkenLogo: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Logo, { variant: "icon" })
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(Sidebar.Content.Wrapper, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Sidebar.Content.Title, { children: "Menu" }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Sidebar.Content.Items, { children: !isFiltering && (links == null ? void 0 : links.map((item, index) => {
+      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(Sidebar.Content.Wrapper, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Sidebar.Content.Title, { children: "Menu" }),
+        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Sidebar.Content.Items, { children: !isFiltering && (links == null ? void 0 : links.map((item, index) => {
           var _a, _b, _c, _d, _e;
           if ((item == null ? void 0 : item.subItens) && ((_a = item == null ? void 0 : item.subItens) == null ? void 0 : _a.length) > 0) {
-            return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+            return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
               NavLink2,
               {
                 onClick: toggleSidebar,
@@ -806,7 +870,7 @@ var Container = ({ navigation }) => {
               index
             );
           } else if (item) {
-            return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+            return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
               NavLink2,
               {
                 to: (_d = item == null ? void 0 : item.to) != null ? _d : "",
@@ -819,18 +883,18 @@ var Container = ({ navigation }) => {
           }
         })) })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Sidebar.Footer, { text: "Powered by Nuv Tech", shrunkenText: "Nuv Tech" })
+      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Sidebar.Footer, { text: "Powered by Nuv Tech", shrunkenText: "Nuv Tech" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Sidebar.Page, { children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_react_router_dom2.Outlet, {}) })
+    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Sidebar.Page, { children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_react_router_dom2.Outlet, {}) })
   ] });
 };
 
 // src/components/Sidebar/Content/Items/index.tsx
-var import_material14 = require("@mui/material");
-var import_jsx_runtime15 = require("react/jsx-runtime");
+var import_material16 = require("@mui/material");
+var import_jsx_runtime17 = require("react/jsx-runtime");
 var ContentItems = ({ children }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
-    import_material14.Box,
+  return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+    import_material16.Box,
     {
       component: "nav",
       sx: {
@@ -844,12 +908,12 @@ var ContentItems = ({ children }) => {
 };
 
 // src/components/Sidebar/Content/Title/index.tsx
-var import_material15 = require("@mui/material");
-var import_jsx_runtime16 = require("react/jsx-runtime");
+var import_material17 = require("@mui/material");
+var import_jsx_runtime18 = require("react/jsx-runtime");
 var ContentTitle = ({ children }) => {
   const { sidebarIsOpen } = useSidebar();
-  return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
-    import_material15.Box,
+  return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+    import_material17.Box,
     {
       sx: {
         paddingY: 1,
@@ -857,8 +921,8 @@ var ContentTitle = ({ children }) => {
         borderColor: "divider",
         display: "flex"
       },
-      children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
-        import_material15.Typography,
+      children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+        import_material17.Typography,
         {
           fontSize: 12,
           sx: {
@@ -873,14 +937,14 @@ var ContentTitle = ({ children }) => {
 };
 
 // src/components/Sidebar/Content/Wrapper/index.tsx
-var import_material16 = require("@mui/material");
-var import_jsx_runtime17 = require("react/jsx-runtime");
+var import_material18 = require("@mui/material");
+var import_jsx_runtime19 = require("react/jsx-runtime");
 var ContentWrapper = ({ children }) => {
-  const theme2 = (0, import_material16.useTheme)();
+  const theme2 = (0, import_material18.useTheme)();
   const { sidebarIsOpen } = useSidebar();
   const width = sidebarIsOpen ? 242 : 89;
-  return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
-    import_material16.Box,
+  return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
+    import_material18.Box,
     {
       sx: {
         flex: 1,
@@ -909,14 +973,14 @@ var Content = {
 };
 
 // src/components/Sidebar/Footer/index.tsx
-var import_material17 = require("@mui/material");
-var import_jsx_runtime18 = require("react/jsx-runtime");
+var import_material19 = require("@mui/material");
+var import_jsx_runtime20 = require("react/jsx-runtime");
 var Footer = ({ shrunkenText = "", text = "" }) => {
   const { sidebarIsOpen } = useSidebar();
-  const theme2 = (0, import_material17.useTheme)();
+  const theme2 = (0, import_material19.useTheme)();
   const width = sidebarIsOpen ? 242 : 89;
-  return /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(
-    import_material17.Box,
+  return /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(
+    import_material19.Box,
     {
       sx: {
         width,
@@ -947,14 +1011,14 @@ var Footer = ({ shrunkenText = "", text = "" }) => {
 
 // src/components/Sidebar/Header/index.tsx
 var import_icons_material2 = require("@mui/icons-material");
-var import_material18 = require("@mui/material");
-var import_jsx_runtime19 = require("react/jsx-runtime");
+var import_material20 = require("@mui/material");
+var import_jsx_runtime21 = require("react/jsx-runtime");
 var Header = ({ logo, shrunkenLogo }) => {
-  const theme2 = (0, import_material18.useTheme)();
+  const theme2 = (0, import_material20.useTheme)();
   const { sidebarIsOpen, toggleSidebar } = useSidebar();
   const width = sidebarIsOpen ? 242 : 89;
-  return /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(
-    import_material18.Box,
+  return /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(
+    import_material20.Box,
     {
       sx: {
         display: "flex",
@@ -976,8 +1040,8 @@ var Header = ({ logo, shrunkenLogo }) => {
       },
       children: [
         sidebarIsOpen ? logo : shrunkenLogo,
-        /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
-          import_material18.Box,
+        /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+          import_material20.Box,
           {
             component: "button",
             sx: {
@@ -996,8 +1060,8 @@ var Header = ({ logo, shrunkenLogo }) => {
               cursor: "pointer"
             },
             onClick: toggleSidebar,
-            children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
-              import_material18.Box,
+            children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+              import_material20.Box,
               {
                 sx: {
                   transform: sidebarIsOpen ? "rotate(180deg)" : "rotate(0deg)",
@@ -1006,7 +1070,7 @@ var Header = ({ logo, shrunkenLogo }) => {
                   justifyContent: "center",
                   transition: "all 0.2s ease-in-out"
                 },
-                children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(import_icons_material2.ChevronRight, { fontSize: "small" })
+                children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(import_icons_material2.ChevronRight, { fontSize: "small" })
               }
             )
           }
@@ -1017,13 +1081,13 @@ var Header = ({ logo, shrunkenLogo }) => {
 };
 
 // src/components/Sidebar/Page/index.tsx
-var import_material19 = require("@mui/material");
-var import_jsx_runtime20 = require("react/jsx-runtime");
+var import_material21 = require("@mui/material");
+var import_jsx_runtime22 = require("react/jsx-runtime");
 var Page = ({ children }) => {
-  const theme2 = (0, import_material19.useTheme)();
+  const theme2 = (0, import_material21.useTheme)();
   const { sidebarIsOpen } = useSidebar();
-  return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
-    import_material19.Box,
+  return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+    import_material21.Box,
     {
       sx: {
         minHeight: "100vh",
@@ -1040,11 +1104,11 @@ var Page = ({ children }) => {
 };
 
 // src/components/Sidebar/Root/index.tsx
-var import_material20 = require("@mui/material");
-var import_jsx_runtime21 = require("react/jsx-runtime");
+var import_material22 = require("@mui/material");
+var import_jsx_runtime23 = require("react/jsx-runtime");
 var Root = ({ children }) => {
   const { sidebarIsOpen } = useSidebar();
-  return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(import_material20.Drawer, { variant: "permanent", open: sidebarIsOpen, children });
+  return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(import_material22.Drawer, { variant: "permanent", open: sidebarIsOpen, children });
 };
 
 // src/components/Sidebar/index.ts
@@ -1059,11 +1123,11 @@ var Sidebar = {
 };
 
 // src/components/TagStatus/index.tsx
-var import_material21 = require("@mui/material");
-var import_jsx_runtime22 = require("react/jsx-runtime");
+var import_material23 = require("@mui/material");
+var import_jsx_runtime24 = require("react/jsx-runtime");
 var TagStatus = (_a) => {
   var _b = _a, { variant, children } = _b, props = __objRest(_b, ["variant", "children"]);
-  const theme2 = (0, import_material21.useTheme)();
+  const theme2 = (0, import_material23.useTheme)();
   let styleSx = {};
   switch (variant) {
     case "approve":
@@ -1103,16 +1167,16 @@ var TagStatus = (_a) => {
       };
       break;
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
-    import_material21.Stack,
+  return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+    import_material23.Stack,
     __spreadProps(__spreadValues({}, props), {
       sx: __spreadValues(__spreadValues({
         borderRadius: radii.xs,
         px: space[4],
         py: space[2]
       }, styleSx), props.sx),
-      children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
-        import_material21.Typography,
+      children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+        import_material23.Typography,
         {
           sx: {
             color: "inherit",
@@ -1127,7 +1191,7 @@ var TagStatus = (_a) => {
 };
 
 // src/components/TextField/Default/index.tsx
-var import_material22 = require("@mui/material");
+var import_material24 = require("@mui/material");
 var import_react4 = require("react");
 
 // src/utils/masks.ts
@@ -1153,12 +1217,12 @@ var masks = ({ type, data }) => {
 };
 
 // src/components/TextField/Default/index.tsx
-var import_jsx_runtime23 = require("react/jsx-runtime");
+var import_jsx_runtime25 = require("react/jsx-runtime");
 var TextFieldDefault = (0, import_react4.forwardRef)((_a, ref) => {
   var _b = _a, { mask } = _b, props = __objRest(_b, ["mask"]);
-  const theme2 = (0, import_material22.useTheme)();
-  return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
-    import_material22.TextField,
+  const theme2 = (0, import_material24.useTheme)();
+  return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
+    import_material24.TextField,
     __spreadProps(__spreadValues({}, props), {
       ref,
       sx: __spreadValues({
@@ -1191,10 +1255,10 @@ TextFieldDefault.displayName = "Default";
 
 // src/components/TextField/ExternalLabel/index.tsx
 var import_icons_material3 = require("@mui/icons-material");
-var import_material23 = require("@mui/material");
+var import_material25 = require("@mui/material");
 var import_react5 = require("react");
 var import_react_router_dom3 = require("react-router-dom");
-var import_jsx_runtime24 = require("react/jsx-runtime");
+var import_jsx_runtime26 = require("react/jsx-runtime");
 var TextFieldExternalLabel = (0, import_react5.forwardRef)(
   (_a, ref) => {
     var _b = _a, {
@@ -1210,20 +1274,20 @@ var TextFieldExternalLabel = (0, import_react5.forwardRef)(
       "labelProps",
       "errorMessage"
     ]);
-    const theme2 = (0, import_material23.useTheme)();
+    const theme2 = (0, import_material25.useTheme)();
     const [canSeeValue, setCanSeeValue] = (0, import_react5.useState)(label !== "Senha");
     const handleChangeCanSeeValue = () => {
       setCanSeeValue((prev) => !prev);
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(
-      import_material23.Stack,
+    return /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(
+      import_material25.Stack,
       __spreadProps(__spreadValues({}, containerProps), {
         sx: {
           gap: 1
         },
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(
-            import_material23.Stack,
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(
+            import_material25.Stack,
             {
               sx: {
                 flexDirection: "row",
@@ -1231,8 +1295,8 @@ var TextFieldExternalLabel = (0, import_react5.forwardRef)(
                 alignItems: "center"
               },
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
-                  import_material23.InputLabel,
+                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+                  import_material25.InputLabel,
                   __spreadProps(__spreadValues({}, labelProps), {
                     sx: {
                       fontSize: 16,
@@ -1243,8 +1307,8 @@ var TextFieldExternalLabel = (0, import_react5.forwardRef)(
                     children: label
                   })
                 ),
-                label === "Senha" && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
-                  import_material23.Box,
+                label === "Senha" && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+                  import_material25.Box,
                   {
                     component: import_react_router_dom3.Link,
                     sx: {
@@ -1257,7 +1321,7 @@ var TextFieldExternalLabel = (0, import_react5.forwardRef)(
               ]
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
             TextField.Default,
             __spreadProps(__spreadValues({}, props), {
               ref,
@@ -1270,20 +1334,20 @@ var TextFieldExternalLabel = (0, import_react5.forwardRef)(
                 }
               }, props.sx),
               InputProps: {
-                endAdornment: visibilityChange && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_material23.InputAdornment, { position: "end", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
-                  import_material23.IconButton,
+                endAdornment: visibilityChange && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_material25.InputAdornment, { position: "end", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+                  import_material25.IconButton,
                   {
                     "aria-label": "Altere a visibilidade",
                     onClick: handleChangeCanSeeValue,
                     edge: "end",
-                    children: canSeeValue ? /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_icons_material3.VisibilityOff, {}) : /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_icons_material3.Visibility, {})
+                    children: canSeeValue ? /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_icons_material3.VisibilityOff, {}) : /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_icons_material3.Visibility, {})
                   }
                 ) })
               }
             })
           ),
-          (props == null ? void 0 : props.error) && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(
-            import_material23.Stack,
+          (props == null ? void 0 : props.error) && /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(
+            import_material25.Stack,
             {
               sx: {
                 color: theme2.palette.error.main,
@@ -1291,7 +1355,7 @@ var TextFieldExternalLabel = (0, import_react5.forwardRef)(
                 gap: 1
               },
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
                   import_icons_material3.ErrorOutline,
                   {
                     sx: {
@@ -1300,8 +1364,8 @@ var TextFieldExternalLabel = (0, import_react5.forwardRef)(
                     }
                   }
                 ),
-                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
-                  import_material23.Typography,
+                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+                  import_material25.Typography,
                   {
                     variant: "caption",
                     sx: {
@@ -1321,15 +1385,15 @@ var TextFieldExternalLabel = (0, import_react5.forwardRef)(
 TextFieldExternalLabel.displayName = "External Label";
 
 // src/components/TextField/Icon/index.tsx
-var import_material24 = require("@mui/material");
+var import_material26 = require("@mui/material");
 var import_react6 = require("react");
-var import_jsx_runtime25 = require("react/jsx-runtime");
+var import_jsx_runtime27 = require("react/jsx-runtime");
 var TextFieldIcon = (0, import_react6.forwardRef)(
   (_a, ref) => {
     var _b = _a, { icon } = _b, props = __objRest(_b, ["icon"]);
     var _a2;
-    const theme2 = (0, import_material24.useTheme)();
-    return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
+    const theme2 = (0, import_material26.useTheme)();
+    return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
       TextField.Default,
       __spreadProps(__spreadValues({}, props), {
         ref,
@@ -1344,7 +1408,7 @@ var TextFieldIcon = (0, import_react6.forwardRef)(
           sx: __spreadValues({
             height: 52
           }, (_a2 = props.InputProps) == null ? void 0 : _a2.sx),
-          startAdornment: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_material24.InputAdornment, { position: "start", children: icon })
+          startAdornment: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_material26.InputAdornment, { position: "start", children: icon })
         }, props.InputProps)
       })
     );
@@ -1354,14 +1418,14 @@ TextFieldIcon.displayName = "Icon";
 
 // src/components/TextField/InternalLabel/index.tsx
 var import_icons_material4 = require("@mui/icons-material");
-var import_material25 = require("@mui/material");
+var import_material27 = require("@mui/material");
 var import_react7 = require("react");
-var import_jsx_runtime26 = require("react/jsx-runtime");
+var import_jsx_runtime28 = require("react/jsx-runtime");
 var TextFieldInternalLabel = (0, import_react7.forwardRef)((_a, ref) => {
   var _b = _a, { errorMessage } = _b, props = __objRest(_b, ["errorMessage"]);
-  const theme2 = (0, import_material25.useTheme)();
-  return /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(
-    import_material25.FormControl,
+  const theme2 = (0, import_material27.useTheme)();
+  return /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(
+    import_material27.FormControl,
     {
       fullWidth: true,
       sx: {
@@ -1370,7 +1434,7 @@ var TextFieldInternalLabel = (0, import_react7.forwardRef)((_a, ref) => {
         gap: 1
       },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
           TextField.Default,
           __spreadProps(__spreadValues({}, props), {
             ref,
@@ -1395,8 +1459,8 @@ var TextFieldInternalLabel = (0, import_react7.forwardRef)((_a, ref) => {
             }, props.InputProps)
           })
         ),
-        (props == null ? void 0 : props.error) && /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(
-          import_material25.Stack,
+        (props == null ? void 0 : props.error) && /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(
+          import_material27.Stack,
           {
             sx: {
               color: theme2.palette.error.main,
@@ -1404,7 +1468,7 @@ var TextFieldInternalLabel = (0, import_react7.forwardRef)((_a, ref) => {
               gap: 1
             },
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
                 import_icons_material4.ErrorOutline,
                 {
                   sx: {
@@ -1413,8 +1477,8 @@ var TextFieldInternalLabel = (0, import_react7.forwardRef)((_a, ref) => {
                   }
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
-                import_material25.Typography,
+              /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
+                import_material27.Typography,
                 {
                   variant: "caption",
                   sx: {
@@ -1441,8 +1505,8 @@ var TextField = {
 };
 
 // src/styles/theme.ts
-var import_material26 = require("@mui/material");
-var theme = (0, import_material26.createTheme)({
+var import_material28 = require("@mui/material");
+var theme = (0, import_material28.createTheme)({
   palette: {
     primary: {
       main: colors.primary,
