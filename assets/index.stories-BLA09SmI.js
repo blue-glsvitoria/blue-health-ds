@@ -1,0 +1,11 @@
+import{j as i}from"./jsx-runtime-CKrituN3.js";import{B as o}from"./index-DsoWsVcV.js";const f={title:"Design System/Button",component:o.Default,argTypes:{children:{type:"string"},disabled:{type:"boolean"},onClick:{action:"clicked"}},args:{children:"Click me"}},t={args:{}},e=()=>i.jsx(o.Primary,{children:"Primary"}),r=()=>i.jsx(o.Primary,{disabled:!0,children:"Primary Disabled"}),a=()=>i.jsx(o.OutlineGrey,{children:"Outline Grey"}),s=()=>i.jsx(o.OutlineGrey,{disabled:!0,children:"Outline Grey Disabled"});e.__docgenInfo={description:"",methods:[],displayName:"Primary"};r.__docgenInfo={description:"",methods:[],displayName:"PrimaryDisabled"};a.__docgenInfo={description:"",methods:[],displayName:"OutlineGrey"};s.__docgenInfo={description:"",methods:[],displayName:"OutlineGreyDisabled"};var n,d,c;t.parameters={...t.parameters,docs:{...(n=t.parameters)==null?void 0:n.docs,source:{originalSource:`{
+  args: {}
+}`,...(c=(d=t.parameters)==null?void 0:d.docs)==null?void 0:c.source}}};var l,m,u;e.parameters={...e.parameters,docs:{...(l=e.parameters)==null?void 0:l.docs,source:{originalSource:`() => <Button.Primary>
+    Primary
+  </Button.Primary>`,...(u=(m=e.parameters)==null?void 0:m.docs)==null?void 0:u.source}}};var y,p,b;r.parameters={...r.parameters,docs:{...(y=r.parameters)==null?void 0:y.docs,source:{originalSource:`() => <Button.Primary disabled>
+    Primary Disabled
+  </Button.Primary>`,...(b=(p=r.parameters)==null?void 0:p.docs)==null?void 0:b.source}}};var O,P,g;a.parameters={...a.parameters,docs:{...(O=a.parameters)==null?void 0:O.docs,source:{originalSource:`() => <Button.OutlineGrey>
+    Outline Grey
+  </Button.OutlineGrey>`,...(g=(P=a.parameters)==null?void 0:P.docs)==null?void 0:g.source}}};var G,D,_;s.parameters={...s.parameters,docs:{...(G=s.parameters)==null?void 0:G.docs,source:{originalSource:`() => <Button.OutlineGrey disabled>
+    Outline Grey Disabled
+  </Button.OutlineGrey>`,...(_=(D=s.parameters)==null?void 0:D.docs)==null?void 0:_.source}}};const B=["Default","Primary","PrimaryDisabled","OutlineGrey","OutlineGreyDisabled"],j=Object.freeze(Object.defineProperty({__proto__:null,Default:t,OutlineGrey:a,OutlineGreyDisabled:s,Primary:e,PrimaryDisabled:r,__namedExportsOrder:B,default:f},Symbol.toStringTag,{value:"Module"}));export{t as D,a as O,e as P,j as S,r as a,s as b};

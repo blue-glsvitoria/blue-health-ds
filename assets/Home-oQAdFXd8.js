@@ -1,0 +1,2 @@
+import{j as e}from"./jsx-runtime-CKrituN3.js";import{useMDXComponents as r}from"./index-DSz_1G2r.js";import"./index-CBqU2yxZ.js";import"./_commonjsHelpers-BosuxZz1.js";function o(t){const n={h1:"h1",p:"p",...r(),...t.components};return e.jsxs(e.Fragment,{children:[e.jsx(n.h1,{id:"blue-health",children:"Blue Health"}),`
+`,e.jsx(n.p,{children:"Design System da Blue Health"})]})}function a(t={}){const{wrapper:n}={...r(),...t.components};return n?e.jsx(n,{...t,children:e.jsx(o,{...t})}):o(t)}export{a as default};
