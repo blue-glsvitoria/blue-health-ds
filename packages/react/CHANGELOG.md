@@ -1,5 +1,11 @@
 # @blue-health/react
 
+## 3.4.0
+
+### Minor Changes
+
+- Create Sidebar component
+
 ## 3.3.0
 
 ### Minor Changes

@@ -1,7 +1,7 @@
 import * as react_jsx_runtime from 'react/jsx-runtime';
 import * as _mui_material_OverridableComponent from '@mui/material/OverridableComponent';
 import * as _mui_material from '@mui/material';
-import { ButtonProps as ButtonProps$1, IconButtonProps as IconButtonProps$1, TextFieldProps as TextFieldProps$1 } from '@mui/material';
+import { ButtonProps as ButtonProps$1, IconButtonProps as IconButtonProps$1, StackProps, TextFieldProps as TextFieldProps$1 } from '@mui/material';
 import * as react from 'react';
 import react__default, { ReactNode } from 'react';
 
@@ -139,6 +139,12 @@ declare const Sidebar: {
 };
 type SidebarProps = ContainerProps;
 
+type TagStatusProps = {
+    variant: "approve" | "reject" | "pending" | "black" | "blue" | "others";
+    children: string;
+} & StackProps;
+declare const TagStatus: ({ variant, children, ...props }: TagStatusProps) => react_jsx_runtime.JSX.Element;
+
 type MasksType = "cpf" | "cnpj" | "phone" | "date" | "cep" | "currency" | "code";
 
 type TextFieldDefaultProps = {
@@ -199,4 +205,4 @@ type TextFieldProps = TextFieldDefaultProps;
 
 declare const theme: _mui_material.Theme;
 
-export { Button, type ButtonProps, ButtonSmall, type ButtonSmallProps, IconButton, type IconButtonProps, Logo, type LogoProps, NavLink, type NavLinkProps, Sidebar, type SidebarProps, TextField, type TextFieldProps, theme };
+export { Button, type ButtonProps, ButtonSmall, type ButtonSmallProps, IconButton, type IconButtonProps, Logo, type LogoProps, NavLink, type NavLinkProps, Sidebar, type SidebarProps, TagStatus, type TagStatusProps, TextField, type TextFieldProps, theme };

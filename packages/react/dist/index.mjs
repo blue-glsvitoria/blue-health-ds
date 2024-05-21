@@ -1024,10 +1024,82 @@ var Sidebar = {
   Provider: SidebarProvider
 };
 
+// src/components/TagStatus/index.tsx
+import {
+  Stack,
+  Typography as Typography3,
+  useTheme as useTheme15
+} from "@mui/material";
+import { jsx as jsx21 } from "react/jsx-runtime";
+var TagStatus = (_a) => {
+  var _b = _a, { variant, children } = _b, props = __objRest(_b, ["variant", "children"]);
+  const theme2 = useTheme15();
+  let styleSx = {};
+  switch (variant) {
+    case "approve":
+      styleSx = {
+        backgroundColor: "#2E7D3240",
+        color: theme2.palette.success.main
+      };
+      break;
+    case "reject":
+      styleSx = {
+        backgroundColor: "#D32F2F40",
+        color: theme2.palette.error.main
+      };
+      break;
+    case "pending":
+      styleSx = {
+        backgroundColor: "#EF6C0040",
+        color: theme2.palette.warning.main
+      };
+      break;
+    case "black":
+      styleSx = {
+        backgroundColor: "#2B2B2B40",
+        color: theme2.palette.text.primary
+      };
+      break;
+    case "blue":
+      styleSx = {
+        backgroundColor: "#2500CF40",
+        color: theme2.palette.primary.main
+      };
+      break;
+    case "others":
+      styleSx = {
+        backgroundColor: "#E8EDFF",
+        color: "#7A8A9D"
+      };
+      break;
+  }
+  return /* @__PURE__ */ jsx21(
+    Stack,
+    __spreadProps(__spreadValues({}, props), {
+      sx: __spreadValues(__spreadValues({
+        borderRadius: radii.xs,
+        px: space[4],
+        py: space[2]
+      }, styleSx), props.sx),
+      children: /* @__PURE__ */ jsx21(
+        Typography3,
+        {
+          sx: {
+            color: "inherit",
+            fontSize: fontSizes.sm,
+            fontWeight: fontWeights.semibold
+          },
+          children
+        }
+      )
+    })
+  );
+};
+
 // src/components/TextField/Default/index.tsx
 import {
   TextField as TextFieldMUI,
-  useTheme as useTheme15
+  useTheme as useTheme16
 } from "@mui/material";
 import { forwardRef } from "react";
 
@@ -1054,11 +1126,11 @@ var masks = ({ type, data }) => {
 };
 
 // src/components/TextField/Default/index.tsx
-import { jsx as jsx21 } from "react/jsx-runtime";
+import { jsx as jsx22 } from "react/jsx-runtime";
 var TextFieldDefault = forwardRef((_a, ref) => {
   var _b = _a, { mask } = _b, props = __objRest(_b, ["mask"]);
-  const theme2 = useTheme15();
-  return /* @__PURE__ */ jsx21(
+  const theme2 = useTheme16();
+  return /* @__PURE__ */ jsx22(
     TextFieldMUI,
     __spreadProps(__spreadValues({}, props), {
       ref,
@@ -1097,13 +1169,13 @@ import {
   IconButton as IconButton2,
   InputAdornment,
   InputLabel,
-  Stack,
-  Typography as Typography3,
-  useTheme as useTheme16
+  Stack as Stack2,
+  Typography as Typography4,
+  useTheme as useTheme17
 } from "@mui/material";
 import { forwardRef as forwardRef2, useState as useState4 } from "react";
 import { Link as Link2 } from "react-router-dom";
-import { jsx as jsx22, jsxs as jsxs5 } from "react/jsx-runtime";
+import { jsx as jsx23, jsxs as jsxs5 } from "react/jsx-runtime";
 var TextFieldExternalLabel = forwardRef2(
   (_a, ref) => {
     var _b = _a, {
@@ -1119,20 +1191,20 @@ var TextFieldExternalLabel = forwardRef2(
       "labelProps",
       "errorMessage"
     ]);
-    const theme2 = useTheme16();
+    const theme2 = useTheme17();
     const [canSeeValue, setCanSeeValue] = useState4(label !== "Senha");
     const handleChangeCanSeeValue = () => {
       setCanSeeValue((prev) => !prev);
     };
     return /* @__PURE__ */ jsxs5(
-      Stack,
+      Stack2,
       __spreadProps(__spreadValues({}, containerProps), {
         sx: {
           gap: 1
         },
         children: [
           /* @__PURE__ */ jsxs5(
-            Stack,
+            Stack2,
             {
               sx: {
                 flexDirection: "row",
@@ -1140,7 +1212,7 @@ var TextFieldExternalLabel = forwardRef2(
                 alignItems: "center"
               },
               children: [
-                /* @__PURE__ */ jsx22(
+                /* @__PURE__ */ jsx23(
                   InputLabel,
                   __spreadProps(__spreadValues({}, labelProps), {
                     sx: {
@@ -1152,7 +1224,7 @@ var TextFieldExternalLabel = forwardRef2(
                     children: label
                   })
                 ),
-                label === "Senha" && /* @__PURE__ */ jsx22(
+                label === "Senha" && /* @__PURE__ */ jsx23(
                   Box9,
                   {
                     component: Link2,
@@ -1166,7 +1238,7 @@ var TextFieldExternalLabel = forwardRef2(
               ]
             }
           ),
-          /* @__PURE__ */ jsx22(
+          /* @__PURE__ */ jsx23(
             TextField.Default,
             __spreadProps(__spreadValues({}, props), {
               ref,
@@ -1179,20 +1251,20 @@ var TextFieldExternalLabel = forwardRef2(
                 }
               }, props.sx),
               InputProps: {
-                endAdornment: visibilityChange && /* @__PURE__ */ jsx22(InputAdornment, { position: "end", children: /* @__PURE__ */ jsx22(
+                endAdornment: visibilityChange && /* @__PURE__ */ jsx23(InputAdornment, { position: "end", children: /* @__PURE__ */ jsx23(
                   IconButton2,
                   {
                     "aria-label": "Altere a visibilidade",
                     onClick: handleChangeCanSeeValue,
                     edge: "end",
-                    children: canSeeValue ? /* @__PURE__ */ jsx22(VisibilityOff, {}) : /* @__PURE__ */ jsx22(Visibility, {})
+                    children: canSeeValue ? /* @__PURE__ */ jsx23(VisibilityOff, {}) : /* @__PURE__ */ jsx23(Visibility, {})
                   }
                 ) })
               }
             })
           ),
           (props == null ? void 0 : props.error) && /* @__PURE__ */ jsxs5(
-            Stack,
+            Stack2,
             {
               sx: {
                 color: theme2.palette.error.main,
@@ -1200,7 +1272,7 @@ var TextFieldExternalLabel = forwardRef2(
                 gap: 1
               },
               children: [
-                /* @__PURE__ */ jsx22(
+                /* @__PURE__ */ jsx23(
                   ErrorOutline,
                   {
                     sx: {
@@ -1209,8 +1281,8 @@ var TextFieldExternalLabel = forwardRef2(
                     }
                   }
                 ),
-                /* @__PURE__ */ jsx22(
-                  Typography3,
+                /* @__PURE__ */ jsx23(
+                  Typography4,
                   {
                     variant: "caption",
                     sx: {
@@ -1230,15 +1302,15 @@ var TextFieldExternalLabel = forwardRef2(
 TextFieldExternalLabel.displayName = "External Label";
 
 // src/components/TextField/Icon/index.tsx
-import { InputAdornment as InputAdornment2, useTheme as useTheme17 } from "@mui/material";
+import { InputAdornment as InputAdornment2, useTheme as useTheme18 } from "@mui/material";
 import { forwardRef as forwardRef3 } from "react";
-import { jsx as jsx23 } from "react/jsx-runtime";
+import { jsx as jsx24 } from "react/jsx-runtime";
 var TextFieldIcon = forwardRef3(
   (_a, ref) => {
     var _b = _a, { icon } = _b, props = __objRest(_b, ["icon"]);
     var _a2;
-    const theme2 = useTheme17();
-    return /* @__PURE__ */ jsx23(
+    const theme2 = useTheme18();
+    return /* @__PURE__ */ jsx24(
       TextField.Default,
       __spreadProps(__spreadValues({}, props), {
         ref,
@@ -1253,7 +1325,7 @@ var TextFieldIcon = forwardRef3(
           sx: __spreadValues({
             height: 52
           }, (_a2 = props.InputProps) == null ? void 0 : _a2.sx),
-          startAdornment: /* @__PURE__ */ jsx23(InputAdornment2, { position: "start", children: icon })
+          startAdornment: /* @__PURE__ */ jsx24(InputAdornment2, { position: "start", children: icon })
         }, props.InputProps)
       })
     );
@@ -1263,12 +1335,12 @@ TextFieldIcon.displayName = "Icon";
 
 // src/components/TextField/InternalLabel/index.tsx
 import { ErrorOutline as ErrorOutline2 } from "@mui/icons-material";
-import { FormControl, Stack as Stack2, Typography as Typography4, useTheme as useTheme18 } from "@mui/material";
+import { FormControl, Stack as Stack3, Typography as Typography5, useTheme as useTheme19 } from "@mui/material";
 import { forwardRef as forwardRef4 } from "react";
-import { jsx as jsx24, jsxs as jsxs6 } from "react/jsx-runtime";
+import { jsx as jsx25, jsxs as jsxs6 } from "react/jsx-runtime";
 var TextFieldInternalLabel = forwardRef4((_a, ref) => {
   var _b = _a, { errorMessage } = _b, props = __objRest(_b, ["errorMessage"]);
-  const theme2 = useTheme18();
+  const theme2 = useTheme19();
   return /* @__PURE__ */ jsxs6(
     FormControl,
     {
@@ -1279,7 +1351,7 @@ var TextFieldInternalLabel = forwardRef4((_a, ref) => {
         gap: 1
       },
       children: [
-        /* @__PURE__ */ jsx24(
+        /* @__PURE__ */ jsx25(
           TextField.Default,
           __spreadProps(__spreadValues({}, props), {
             ref,
@@ -1305,7 +1377,7 @@ var TextFieldInternalLabel = forwardRef4((_a, ref) => {
           })
         ),
         (props == null ? void 0 : props.error) && /* @__PURE__ */ jsxs6(
-          Stack2,
+          Stack3,
           {
             sx: {
               color: theme2.palette.error.main,
@@ -1313,7 +1385,7 @@ var TextFieldInternalLabel = forwardRef4((_a, ref) => {
               gap: 1
             },
             children: [
-              /* @__PURE__ */ jsx24(
+              /* @__PURE__ */ jsx25(
                 ErrorOutline2,
                 {
                   sx: {
@@ -1322,8 +1394,8 @@ var TextFieldInternalLabel = forwardRef4((_a, ref) => {
                   }
                 }
               ),
-              /* @__PURE__ */ jsx24(
-                Typography4,
+              /* @__PURE__ */ jsx25(
+                Typography5,
                 {
                   variant: "caption",
                   sx: {
@@ -1409,6 +1481,7 @@ export {
   Logo,
   NavLink2 as NavLink,
   Sidebar,
+  TagStatus,
   TextField,
   theme
 };
